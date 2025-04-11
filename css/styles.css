@@ -26,9 +26,8 @@ main {
 
 .brand {
   display: flex;
-  align-items: center; /* Changed from flex-start */
+  align-items: flex-start;
   max-width: none; /* Allow full width if needed */
-  height: 400px;
   padding: 0;
 }
 
