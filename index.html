@@ -6,6 +6,35 @@
   <title>JZ Digital | Automate Smarter</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .rotating-text-container {
+      flex: 1;
+      padding-top: 3rem;
+      padding-left: 2rem;
+      overflow: hidden;
+      height: 2rem;
+      position: relative;
+    }
+
+    #rotating-text {
+      white-space: nowrap;
+      display: inline-block;
+      position: absolute;
+      animation: scroll-text 10s linear infinite;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    @keyframes scroll-text {
+      0% {
+        left: 100%;
+      }
+      100% {
+        left: -100%;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="header">
@@ -13,9 +42,9 @@
       <img src="images/logo.jpg" alt="JZ Digital Logo" />
     </div>
 
-    <!-- Rotating Text Section -->
+    <!-- Scrolling Text -->
     <div class="rotating-text-container">
-      <span id="rotating-text">Smarter CRM Integration</span>
+      <span id="rotating-text">Smarter CRM Integration • Lean Automation for SMEs • Compliance-First Workflows • ISO & GDPR Ready Solutions</span>
     </div>
 
     <nav>
@@ -64,28 +93,5 @@
       </div>
     </div>
   </footer>
-
-  <!-- Rotating Text Script -->
-  <script>
-    const messages = [
-      "Smarter CRM Integration",
-      "Lean Automation for SMEs",
-      "Compliance-First Workflows",
-      "ISO & GDPR Ready Solutions"
-    ];
-
-    let index = 0;
-    const rotatingText = document.getElementById("rotating-text");
-
-    setInterval(() => {
-      rotatingText.style.opacity = 0;
-
-      setTimeout(() => {
-        index = (index + 1) % messages.length;
-        rotatingText.textContent = messages[index];
-        rotatingText.style.opacity = 1;
-      }, 500);
-    }, 3000);
-  </script>
 </body>
 </html>
