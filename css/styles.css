@@ -38,15 +38,6 @@ main {
   object-fit: contain;
   margin-right: 1.5rem;
 }
-
-.brand h2 {
-  margin: 0;
-  font-size: 2rem;
-  color: white;
-  display: flex;
-  align-items: flex-start;
-   padding-top: 0; /* Remove this if centering with align-items: center */
-}
 .header nav a {
   color: #fff;
   margin-left: 1em;
