@@ -4,53 +4,162 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JZ Digital | Automate Smarter</title>
-
-  <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
   <style>
-    .rotating-text-container {
-      position: relative;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d1117;
+      color: #f0f6fc;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 2rem;
+      background-color: #002244;
+      gap: 2rem;
+    }
+
+    .brand img {
+      height: 100px;
+      width: auto;
+    }
+
+    .message-stack {
       flex: 1;
-      padding-top: 3rem;
-      padding-left: 2rem;
-      height: 2.2rem;
+      text-align: left;
+      position: relative;
+      height: 3.5rem;
       overflow: hidden;
     }
 
-    .rotating-text-message {
+    .message {
       position: absolute;
       top: 0;
       left: 0;
       opacity: 0;
-      white-space: nowrap;
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    }
+
+    .message.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .message h2 {
+      margin: 0;
       font-size: 1.2rem;
       font-weight: 600;
       color: #fff;
-      transition: opacity 1.5s ease-in-out;
     }
 
-    .rotating-text-message.visible {
-      opacity: 1;
+    .message p {
+      margin: 0.3rem 0 0;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    nav a {
+      color: #f0f6fc;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 1rem;
+    }
+
+    main {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta {
+      padding: 0.75rem 1.5rem;
+      background-color: #58a6ff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .feature {
+      background-color: #112233;
+      padding: 1.5rem;
+      border-radius: 8px;
+      flex: 1 1 250px;
+      text-align: center;
+    }
+
+    .feature i {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      color: #58a6ff;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 2rem;
+      background-color: #002244;
+      text-align: center;
+    }
+
+    .footer-contact a {
+      color: #58a6ff;
+      text-decoration: none;
+      margin: 0 0.75rem;
+    }
+
+    .footer-contact a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <header class="header">
+  <header>
     <div class="brand">
       <img src="images/logo.jpg" alt="JZ Digital Logo" />
     </div>
 
-    <!-- Rotating Text Section -->
-    <div class="rotating-text-container">
-      <span class="rotating-text-message visible">Smarter CRM Integration</span>
-      <span class="rotating-text-message">Lean Automation for SMEs</span>
-      <span class="rotating-text-message">Compliance-First Workflows</span>
-      <span class="rotating-text-message">ISO & GDPR Ready Solutions</span>
+    <div class="message-stack">
+      <div class="message visible">
+        <h2>Smarter CRM Integration</h2>
+        <p>Connect teams and clients effortlessly.</p>
+      </div>
+      <div class="message">
+        <h2>Lean Automation for SMEs</h2>
+        <p>Eliminate repetitive tasks and save time.</p>
+      </div>
+      <div class="message">
+        <h2>Compliance-First Workflows</h2>
+        <p>Align with ISO 27001 and GDPR by default.</p>
+      </div>
+      <div class="message">
+        <h2>ISO & GDPR Ready Solutions</h2>
+        <p>Security, documentation, and audit trails built-in.</p>
+      </div>
     </div>
 
     <nav>
-      <a href="#features">Services</a>
+      <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -63,7 +172,7 @@
       <button class="cta">See Use Cases</button>
     </section>
 
-    <section class="features" id="features">
+    <section class="features" id="services">
       <div class="feature">
         <i class="fas fa-network-wired"></i>
         <h3>CRM Integration</h3>
@@ -82,36 +191,24 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer-content">
-      <p>&copy; 2025 JZ Digital Ltd.</p>
-      <div class="footer-contact">
-        <a href="mailto:contact@jzdigitalconsults.co.uk">
-          <i class="fas fa-envelope"></i> contact@jzdigitalconsults.co.uk
-        </a> |
-        <a href="https://www.linkedin.com/company/jz-digital-ltd/" target="_blank" rel="noopener">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-      </div>
+  <footer>
+    <p>&copy; 2025 JZ Digital Ltd.</p>
+    <div class="footer-contact">
+      <a href="mailto:contact@jzdigitalconsults.co.uk">contact@jzdigitalconsults.co.uk</a>
+      <a href="https://www.linkedin.com/company/jz-digital-ltd/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </footer>
 
-  <!-- Staggered Message Fade Animation Script -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const messages = document.querySelectorAll(".rotating-text-message");
+      const messages = document.querySelectorAll(".message");
       let current = 0;
-      let next = 1;
 
       setInterval(() => {
-        messages[next].classList.add("visible");
-
-        setTimeout(() => {
-          messages[current].classList.remove("visible");
-          current = next;
-          next = (next + 1) % messages.length;
-        }, 3000); // old one fades out after 3s of overlap
-      }, 5000); // new one fades in every 5s
+        messages[current].classList.remove("visible");
+        current = (current + 1) % messages.length;
+        messages[current].classList.add("visible");
+      }, 6000);
     });
   </script>
 </body>
