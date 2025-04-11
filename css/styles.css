@@ -28,12 +28,12 @@ main {
   display: flex;
   align-items: flex-start; /* Align logo and text to top */
   max-width: none; /* Allow full width if needed */
-  height: 300px;
+  height: 400px;
   padding: 0;
 }
 
 .brand img {
-  height: 300px;
+  height: 400px;
   width: auto;
   object-fit: contain;
   margin-right: 1.5rem;
@@ -45,7 +45,7 @@ main {
   color: white;
   display: flex;
   align-items: flex-start;
-  padding-top: 1.5rem; /* Push text down a bit to align visually */
+  padding-top: 2.5rem; /* Push text down a bit to align visually */
 }
 .header nav a {
   color: #fff;
