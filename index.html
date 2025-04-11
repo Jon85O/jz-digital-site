@@ -1,136 +1,57 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JZ Digital | Automate Smarter</title>
 
-main {
-  flex: 1;
-}
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
 
-.brand {
-  display: flex;
-  align-items: center;
-  max-width: 300px;
-}
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <img src="images/logo.jpg" alt="JZ Digital Logo" />
+      <h2>JZ Digital</h2>
+    </div>
+    <nav>
+      <a href="#features">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-.brand img {
-  height: 75px; /* Bigger logo */
-  margin-right: 1rem;
-  object-fit: contain;
-}
+  <main>
+    <section class="hero">
+      <h1>Automate Smarter. Work Leaner. Grow Faster.</h1>
+      <p>Streamline your business processes with modern CRM, automation, and compliance solutions.</p>
+      <button class="cta">See Use Cases</button>
+    </section>
 
-.brand h2 {
-  margin: 0;
-  font-size: 1.8rem;
-  color: white;
-}
+    <section class="features" id="features">
+      <div class="feature">
+        <i class="fas fa-network-wired"></i>
+        <h3>CRM Integration</h3>
+        <p>Connect and centralize your client data with seamless CRM setup.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-file-alt"></i>
+        <h3>Document Automation</h3>
+        <p>Automate reminders, document creation, and storage workflows.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Compliance-Ready</h3>
+        <p>Solutions built with GDPR, ISO 27001, and audit readiness in mind.</p>
+      </div>
+    </section>
+  </main>
 
-.header {
-  background: #002244;
-  color: #fff;
-  padding: 1em 2em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.header nav a {
-  color: #fff;
-  margin-left: 1em;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.hero {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: #000000;
-  color: #d4af7f;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.cta {
-  background: #d4af7f;
-  color: #000;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  font-size: 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-section.features {
-  display: flex;
-  justify-content: space-around;
-  padding: 3rem 2rem;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.feature {
-  background: #fff;
-  padding: 1.5rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  flex: 1 1 280px;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.feature:hover {
-  transform: translateY(-5px);
-}
-
-.feature i {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #d4af7f;
-}
-
-.footer {
-  background: #002244;
-  color: #fff;
-  text-align: center;
-  padding: 1em;
-  font-size: 0.9rem;
-  margin-top: auto;
-}
-
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .brand {
-    justify-content: center;
-    margin-bottom: 1em;
-  }
-
-  .header nav a {
-    margin: 0 0.5em;
-  }
-
-  section.features {
-    padding: 2rem 1rem;
-  }
-
-  .grid {
-    flex-direction: column;
-  }
-
-  .card {
-    flex: 1 1 100%;
-  }
-}
+  <footer class="footer">
+    &copy; 2025 JZ Digital Ltd.
+  </footer>
+</body>
+</html>
