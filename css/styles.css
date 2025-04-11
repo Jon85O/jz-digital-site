@@ -1,3 +1,4 @@
+/* Ensures footer stays at the bottom and logo is larger */
 html, body {
   margin: 0;
   padding: 0;
@@ -5,6 +6,10 @@ html, body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f9f9f9;
   color: #333;
+}
+
+.site-wrapper {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -20,7 +25,7 @@ main {
 }
 
 .brand img {
-  height: 75px; /* Bigger logo */
+  height: 90px; /* Bigger logo */
   margin-right: 1rem;
   object-fit: contain;
 }
