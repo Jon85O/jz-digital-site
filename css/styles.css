@@ -16,25 +16,27 @@ main {
 .header {
   background: #002244;
   color: #fff;
-  padding: 1rem 2rem;
+  padding: 1em 2em;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Let .brand expand */
+  align-items: flex-start;
   flex-wrap: wrap;
+  min-height: 200px;
 }
 
 .brand {
   display: flex;
-  align-items: flex-start;
-  max-width: 500px;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  align-items: flex-start; /* Align logo and text to top */
+  max-width: none; /* Allow full width if needed */
+  height: 200px;
+  padding: 0;
 }
 
 .brand img {
-  height: 140px; /* Final visual target size */
-  margin-right: 1rem;
+  height: 200px;
+  width: auto;
   object-fit: contain;
+  margin-right: 1.5rem;
 }
 
 .brand h2 {
@@ -42,9 +44,9 @@ main {
   font-size: 2rem;
   color: white;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 1.5rem; /* Push text down a bit to align visually */
 }
-
 .header nav a {
   color: #fff;
   margin-left: 1em;
