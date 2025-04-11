@@ -9,71 +9,97 @@
   <style>
     .rotating-text-container {
       flex: 1;
-      padding-top: 3rem;
-      padding-left: 2rem;
-      font-size: 1.2rem;
+      padding-top: 2rem;
+      font-size: 1.1rem;
       color: #ffffff;
-      font-weight: 600;
-      min-height: 1.5rem;
+      font-weight: 500;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
     }
 
-    .rotating-text-container .message {
-      display: none;
+    .message {
+      position: relative;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      white-space: nowrap;
     }
 
-    .rotating-text-container .message.active {
-      display: inline-block;
-      animation: fadeInOut 6s linear forwards;
+    .message.active {
+      opacity: 1;
     }
 
-    .rotating-text-container strong {
+    .message strong {
       color: white;
       font-weight: bold;
-      margin-right: 0.5rem;
+      margin-right: 0.25rem;
     }
 
-    .rotating-text-container span {
+    .message span {
       color: #ccc;
     }
 
-    @keyframes fadeInOut {
-      0% { opacity: 0; }
-      10% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { opacity: 0; }
+    .video-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 2rem;
+    }
+
+    .video-container video {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
     }
   </style>
 </head>
 <body>
   <header class="header">
-    <div class="brand">
-      <img src="images/logo.jpg" alt="JZ Digital Logo" />
-    </div>
+    <div class="header-content">
+      <div class="brand">
+        <img src="images/logo.jpg" alt="JZ Digital Logo" />
+      </div>
 
-    <div class="rotating-text-container" id="rotating-text-container">
-      <div class="message active">
-        <strong>Smarter CRM Integration:</strong>
-        <span>Build stronger relationships with CRM solutions that adapt to how your business actually works.</span>
+      <div class="rotating-text-container" id="rotating-text-container">
+        <div class="message active">
+          <strong>Smarter CRM Integration:</strong>
+          <span>Build stronger relationships with CRM solutions that adapt to how your business actually works.</span>
+        </div>
+        <div class="message">
+          <strong>Lean Automation for SMEs:</strong>
+          <span>Automate the busywork so your team can focus on what moves the business forward.</span>
+        </div>
+        <div class="message">
+          <strong>Compliance-First Workflows:</strong>
+          <span>Streamline operations while meeting regulatory requirements with workflows designed for control.</span>
+        </div>
+        <div class="message">
+          <strong>ISO & GDPR Ready Solutions:</strong>
+          <span>Stay ahead of audits and protect data with compliance built into every layer of your solution.</span>
+        </div>
       </div>
-      <div class="message">
-        <strong>Lean Automation for SMEs:</strong>
-        <span>Automate the busywork so your team can focus on what moves the business forward.</span>
-      </div>
-      <div class="message">
-        <strong>Compliance-First Workflows:</strong>
-        <span>Streamline operations while meeting regulatory requirements with workflows designed for control.</span>
-      </div>
-      <div class="message">
-        <strong>ISO & GDPR Ready Solutions:</strong>
-        <span>Stay ahead of audits and protect data with compliance built into every layer of your solution.</span>
-      </div>
-    </div>
 
-    <nav>
-      <a href="#features">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+      <div class="video-container">
+        <video autoplay loop muted playsinline width="320" height="180">
+          <source src="media/video1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <nav>
+        <a href="#features">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <main>
