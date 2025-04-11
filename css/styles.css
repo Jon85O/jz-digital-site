@@ -27,8 +27,8 @@ main {
 .brand {
   display: flex;
   align-items: flex-start;
-  max-width: none; /* Allow full width if needed */
   padding: 0;
+  max-width: none;
 }
 
 .brand img {
