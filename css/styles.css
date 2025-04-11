@@ -13,35 +13,36 @@ main {
   flex: 1;
 }
 
+.header {
+  background: #002244;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Let .brand expand */
+  flex-wrap: wrap;
+}
+
 .brand {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   max-width: 500px;
-  height: 210px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .brand img {
-  height: 110px; /* Increased from 75px */
+  height: 140px; /* Final visual target size */
   margin-right: 1rem;
   object-fit: contain;
 }
 
-
 .brand h2 {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: white;
-}
-
-.header {
-  min-height: 110px; /* Matches the logo height */
-  background: #002244;
-  color: #fff;
-  padding: 1em 2em;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .header nav a {
