@@ -4,162 +4,49 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JZ Digital | Automate Smarter</title>
+  <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0d1117;
-      color: #f0f6fc;
-    }
-
-    header {
+    .rotating-banner {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      padding: 1.5rem 2rem;
-      background-color: #002244;
-      gap: 2rem;
-    }
-
-    .brand img {
-      height: 100px;
-      width: auto;
-    }
-
-    .message-stack {
-      flex: 1;
-      text-align: left;
+      justify-content: center;
+      margin: auto;
+      text-align: center;
       position: relative;
-      height: 3.5rem;
-      overflow: hidden;
+      height: 100px;
+      min-width: 300px;
     }
-
-    .message {
+    .rotating-message {
       position: absolute;
-      top: 0;
-      left: 0;
       opacity: 0;
-      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-    }
-
-    .message.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .message h2 {
-      margin: 0;
+      transition: opacity 1.5s ease-in-out;
       font-size: 1.2rem;
+      color: white;
       font-weight: 600;
-      color: #fff;
     }
-
-    .message p {
-      margin: 0.3rem 0 0;
-      font-size: 0.95rem;
-      color: #ccc;
-    }
-
-    nav a {
-      color: #f0f6fc;
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-size: 1rem;
-    }
-
-    main {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-
-    .cta {
-      padding: 0.75rem 1.5rem;
-      background-color: #58a6ff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    .features {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 4rem;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    .feature {
-      background-color: #112233;
-      padding: 1.5rem;
-      border-radius: 8px;
-      flex: 1 1 250px;
-      text-align: center;
-    }
-
-    .feature i {
-      font-size: 2rem;
-      margin-bottom: 0.75rem;
-      color: #58a6ff;
-    }
-
-    footer {
-      margin-top: 4rem;
-      padding: 2rem;
-      background-color: #002244;
-      text-align: center;
-    }
-
-    .footer-contact a {
-      color: #58a6ff;
-      text-decoration: none;
-      margin: 0 0.75rem;
-    }
-
-    .footer-contact a:hover {
-      text-decoration: underline;
+    .rotating-message.active {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
-  <header>
+  <header class="header">
     <div class="brand">
       <img src="images/logo.jpg" alt="JZ Digital Logo" />
+      <h2>JZ Digital</h2>
     </div>
 
-    <div class="message-stack">
-      <div class="message visible">
-        <h2>Smarter CRM Integration</h2>
-        <p>Connect teams and clients effortlessly.</p>
-      </div>
-      <div class="message">
-        <h2>Lean Automation for SMEs</h2>
-        <p>Eliminate repetitive tasks and save time.</p>
-      </div>
-      <div class="message">
-        <h2>Compliance-First Workflows</h2>
-        <p>Align with ISO 27001 and GDPR by default.</p>
-      </div>
-      <div class="message">
-        <h2>ISO & GDPR Ready Solutions</h2>
-        <p>Security, documentation, and audit trails built-in.</p>
-      </div>
+    <div class="rotating-banner">
+      <span class="rotating-message active">Smarter CRM Integration</span>
+      <span class="rotating-message">Lean Automation for SMEs</span>
+      <span class="rotating-message">Compliance-First Workflows</span>
+      <span class="rotating-message">ISO & GDPR Ready Solutions</span>
     </div>
 
     <nav>
-      <a href="#services">Services</a>
+      <a href="#features">Services</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -172,7 +59,7 @@
       <button class="cta">See Use Cases</button>
     </section>
 
-    <section class="features" id="services">
+    <section class="features" id="features">
       <div class="feature">
         <i class="fas fa-network-wired"></i>
         <h3>CRM Integration</h3>
@@ -191,25 +78,29 @@
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 JZ Digital Ltd.</p>
-    <div class="footer-contact">
-      <a href="mailto:contact@jzdigitalconsults.co.uk">contact@jzdigitalconsults.co.uk</a>
-      <a href="https://www.linkedin.com/company/jz-digital-ltd/" target="_blank" rel="noopener">LinkedIn</a>
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 JZ Digital Ltd.</p>
+      <div class="footer-contact">
+        <a href="mailto:contact@jzdigitalconsults.co.uk">
+          <i class="fas fa-envelope"></i> contact@jzdigitalconsults.co.uk
+        </a> |
+        <a href="https://www.linkedin.com/company/jz-digital-ltd/" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      </div>
     </div>
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const messages = document.querySelectorAll(".message");
-      let current = 0;
+    const banners = document.querySelectorAll('.rotating-message');
+    let index = 0;
 
-      setInterval(() => {
-        messages[current].classList.remove("visible");
-        current = (current + 1) % messages.length;
-        messages[current].classList.add("visible");
-      }, 6000);
-    });
+    setInterval(() => {
+      banners[index].classList.remove('active');
+      index = (index + 1) % banners.length;
+      banners[index].classList.add('active');
+    }, 5000);
   </script>
 </body>
 </html>
