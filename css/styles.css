@@ -16,12 +16,13 @@ main {
 .header {
   background: #002244;
   color: #fff;
-  padding: 1em 2em;
+  padding: 1em 2em 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
   min-height: 300px;
+  position: relative;
 }
 
 .brand {
@@ -39,12 +40,16 @@ main {
   margin-right: 1.5rem;
 }
 
+.header nav {
+  margin-left: auto;
+  margin-top: 1.5rem;
+}
+
 .header nav a {
   color: #fff;
   margin-left: 1em;
   text-decoration: none;
   font-weight: 500;
-  margin-top: 1.5rem; /* Align nav more closely with top of logo */
 }
 
 .hero {
@@ -133,6 +138,54 @@ section.features {
   margin-right: 0.5rem;
 }
 
+/* === ROTATING MESSAGE AND IMAGE === */
+.message-block {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 1rem;
+  max-width: 100%;
+  gap: 2rem;
+}
+
+.rotating-text-container {
+  max-width: 50%;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.message {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  white-space: normal;
+}
+
+.message.active {
+  opacity: 1;
+  position: relative;
+}
+
+.message strong {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.message span {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+.preview-media {
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -142,6 +195,22 @@ section.features {
   .brand {
     justify-content: center;
     margin-bottom: 1em;
+  }
+
+  .message-block {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .rotating-text-container {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .preview-media {
+    max-width: 90%;
+    margin-top: 1rem;
   }
 
   .header nav a {
@@ -158,41 +227,5 @@ section.features {
 
   .card {
     flex: 1 1 100%;
-  }
-
-  .rotating-text-container {
-    position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-weight: 500;
-    font-size: 1.1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 2.5rem;
-  }
-
-  .message {
-    position: absolute;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    white-space: nowrap;
-  }
-
-  .message.active {
-    opacity: 1;
-    position: relative;
-  }
-
-  .message strong {
-    color: white;
-    font-weight: bold;
-    margin-right: 0.25rem;
-  }
-
-  .message span {
-    color: #ccc;
   }
 }
