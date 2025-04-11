@@ -5,7 +5,7 @@ body {
     color: #333;
 }
 .header img {
-    height: 80px;       /* Makes the logo bigger */
+    height: 150px;       /* Makes the logo bigger */
     margin-right: 1.5rem;
     object-fit: contain;
 }
