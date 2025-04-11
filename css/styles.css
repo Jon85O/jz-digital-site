@@ -4,6 +4,11 @@ body {
     background-color: #f9f9f9;
     color: #333;
 }
+.header img {
+    height: 80px;       /* Makes the logo bigger */
+    margin-right: 1.5rem;
+    object-fit: contain;
+}
 .header {
     background: #002244;
     color: #fff;
