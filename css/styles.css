@@ -4,10 +4,18 @@ body {
     background-color: #f9f9f9;
     color: #333;
 }
-.header img {
-    height: 150px;       /* Makes the logo bigger */
-    margin-right: 1.5rem;
-    object-fit: contain;
+.brand {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 350px;
+}
+
+.brand img {
+  height: 90px;
+  margin-right: 1rem;
+  object-fit: contain;
+}
 }
 .header {
     background: #002244;
