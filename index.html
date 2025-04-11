@@ -8,27 +8,39 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     .rotating-text-container {
-      position: absolute;
-      top: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      color: white;
-      font-weight: bold;
+      flex: 1;
+      padding-top: 3rem;
+      padding-left: 2rem;
       font-size: 1.2rem;
-      display: flex;
-      gap: 2rem;
+      color: #ffffff;
+      font-weight: 600;
       min-height: 1.5rem;
     }
-    .rotating-text-container span {
-      opacity: 0;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      transition: opacity 1s ease-in-out;
+
+    .rotating-text-container .message {
+      display: none;
     }
-    .rotating-text-container span.active {
-      opacity: 1;
-      position: relative;
+
+    .rotating-text-container .message.active {
+      display: inline-block;
+      animation: fadeInOut 6s linear forwards;
+    }
+
+    .rotating-text-container strong {
+      color: white;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    .rotating-text-container span {
+      color: #ccc;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; }
     }
   </style>
 </head>
@@ -38,12 +50,23 @@
       <img src="images/logo.jpg" alt="JZ Digital Logo" />
     </div>
 
-    <!-- Animated Message Section -->
-    <div class="rotating-text-container">
-      <span class="active">Smarter CRM Integration</span>
-      <span>Lean Automation for SMEs</span>
-      <span>Compliance-First Workflows</span>
-      <span>ISO & GDPR Ready Solutions</span>
+    <div class="rotating-text-container" id="rotating-text-container">
+      <div class="message active">
+        <strong>Smarter CRM Integration:</strong>
+        <span>Build stronger relationships with CRM solutions that adapt to how your business actually works.</span>
+      </div>
+      <div class="message">
+        <strong>Lean Automation for SMEs:</strong>
+        <span>Automate the busywork so your team can focus on what moves the business forward.</span>
+      </div>
+      <div class="message">
+        <strong>Compliance-First Workflows:</strong>
+        <span>Streamline operations while meeting regulatory requirements with workflows designed for control.</span>
+      </div>
+      <div class="message">
+        <strong>ISO & GDPR Ready Solutions:</strong>
+        <span>Stay ahead of audits and protect data with compliance built into every layer of your solution.</span>
+      </div>
     </div>
 
     <nav>
@@ -94,21 +117,14 @@
   </footer>
 
   <script>
-    const messages = document.querySelectorAll('.rotating-text-container span');
-    let current = 0;
+    const messages = document.querySelectorAll('#rotating-text-container .message');
+    let index = 0;
 
     setInterval(() => {
-      const currentMsg = messages[current];
-      const next = (current + 1) % messages.length;
-      const nextMsg = messages[next];
-
-      nextMsg.classList.add('active');
-
-      setTimeout(() => {
-        currentMsg.classList.remove('active');
-        current = next;
-      }, 2000); // overlap duration between fade in and out
-    }, 5000); // interval between each transition
+      messages[index].classList.remove('active');
+      index = (index + 1) % messages.length;
+      messages[index].classList.add('active');
+    }, 6000);
   </script>
 </body>
 </html>
