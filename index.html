@@ -4,40 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JZ Digital | Automate Smarter</title>
+
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
     .rotating-text-container {
+      position: relative;
       flex: 1;
       padding-top: 3rem;
       padding-left: 2rem;
+      height: 2.2rem;
       overflow: hidden;
-      height: 2rem;
-      position: relative;
     }
 
-    #rotating-text {
-      display: inline-block;
+    .rotating-text-message {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
       white-space: nowrap;
       font-size: 1.2rem;
       font-weight: 600;
       color: #fff;
-      position: absolute;
-      animation: scroll-text 15s linear infinite;
+      transition: opacity 1.5s ease-in-out;
     }
 
-    .rotating-text-container:hover #rotating-text {
-      animation-play-state: paused;
-    }
-
-    @keyframes scroll-text {
-      0% {
-        left: 100%;
-      }
-      100% {
-        left: -100%;
-      }
+    .rotating-text-message.visible {
+      opacity: 1;
     }
   </style>
 </head>
@@ -47,9 +41,12 @@
       <img src="images/logo.jpg" alt="JZ Digital Logo" />
     </div>
 
-    <!-- Scrolling Text Section -->
+    <!-- Rotating Text Section -->
     <div class="rotating-text-container">
-      <span id="rotating-text">Smarter CRM Integration</span>
+      <span class="rotating-text-message visible">Smarter CRM Integration</span>
+      <span class="rotating-text-message">Lean Automation for SMEs</span>
+      <span class="rotating-text-message">Compliance-First Workflows</span>
+      <span class="rotating-text-message">ISO & GDPR Ready Solutions</span>
     </div>
 
     <nav>
@@ -99,22 +96,23 @@
     </div>
   </footer>
 
-  <!-- Script to rotate messages every 9s -->
+  <!-- Staggered Message Fade Animation Script -->
   <script>
-    const messages = [
-      "Smarter CRM Integration",
-      "Lean Automation for SMEs",
-      "Compliance-First Workflows",
-      "ISO & GDPR Ready Solutions"
-    ];
+    document.addEventListener("DOMContentLoaded", () => {
+      const messages = document.querySelectorAll(".rotating-text-message");
+      let current = 0;
+      let next = 1;
 
-    let index = 0;
-    const rotatingText = document.getElementById("rotating-text");
+      setInterval(() => {
+        messages[next].classList.add("visible");
 
-    setInterval(() => {
-      index = (index + 1) % messages.length;
-      rotatingText.textContent = messages[index];
-    }, 9000);
+        setTimeout(() => {
+          messages[current].classList.remove("visible");
+          current = next;
+          next = (next + 1) % messages.length;
+        }, 3000); // old one fades out after 3s of overlap
+      }, 5000); // new one fades in every 5s
+    });
   </script>
 </body>
 </html>
