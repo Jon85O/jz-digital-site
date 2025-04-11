@@ -158,4 +158,19 @@ section.features {
   .card {
     flex: 1 1 100%;
   }
+  .rotating-text-container {
+  flex: 1;
+  padding-top: 3rem;
+  padding-left: 2rem;
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-weight: 600;
+  min-height: 1.5rem;
+}
+
+#rotating-text {
+  display: inline-block;
+  transition: opacity 0.5s ease-in-out;
+}
+
 }
