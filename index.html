@@ -6,11 +6,19 @@
   <title>JZ Digital | Automate Smarter</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%;
       font-family: 'Segoe UI', sans-serif;
       background-color: #f9f9f9;
       color: #333;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
     }
 
     .brand {
@@ -20,7 +28,7 @@
     }
 
     .brand img {
-      height: 60px;
+      height: 75px; /* Bigger logo */
       margin-right: 1rem;
       object-fit: contain;
     }
@@ -98,11 +106,11 @@
       color: #d4af7f;
     }
 
-    footer {
-      background: #000000;
-      color: white;
+    .footer {
+      background: #002244;
+      color: #fff;
       text-align: center;
-      padding: 1rem;
+      padding: 1em;
       font-size: 0.9rem;
     }
 
@@ -140,31 +148,33 @@
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Automate Smarter. Work Leaner. Grow Faster.</h1>
-    <p>Streamline your business processes with modern CRM, automation, and compliance solutions.</p>
-    <button class="cta">See Use Cases</button>
-  </section>
+  <main>
+    <section class="hero">
+      <h1>Automate Smarter. Work Leaner. Grow Faster.</h1>
+      <p>Streamline your business processes with modern CRM, automation, and compliance solutions.</p>
+      <button class="cta">See Use Cases</button>
+    </section>
 
-  <section class="features" id="features">
-    <div class="feature">
-      <i class="fas fa-network-wired"></i>
-      <h3>CRM Integration</h3>
-      <p>Connect and centralize your client data with seamless CRM setup.</p>
-    </div>
-    <div class="feature">
-      <i class="fas fa-file-alt"></i>
-      <h3>Document Automation</h3>
-      <p>Automate reminders, document creation, and storage workflows.</p>
-    </div>
-    <div class="feature">
-      <i class="fas fa-shield-alt"></i>
-      <h3>Compliance-Ready</h3>
-      <p>Solutions built with GDPR, ISO 27001, and audit readiness in mind.</p>
-    </div>
-  </section>
+    <section class="features" id="features">
+      <div class="feature">
+        <i class="fas fa-network-wired"></i>
+        <h3>CRM Integration</h3>
+        <p>Connect and centralize your client data with seamless CRM setup.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-file-alt"></i>
+        <h3>Document Automation</h3>
+        <p>Automate reminders, document creation, and storage workflows.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Compliance-Ready</h3>
+        <p>Solutions built with GDPR, ISO 27001, and audit readiness in mind.</p>
+      </div>
+    </section>
+  </main>
 
-  <footer>
+  <footer class="footer">
     &copy; 2025 JZ Digital Ltd.
   </footer>
 </body>
