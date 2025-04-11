@@ -12,6 +12,12 @@
     <div class="brand">
       <img src="images/logo.jpg" alt="JZ Digital Logo" />
     </div>
+
+    <!-- Rotating Text Section -->
+    <div class="rotating-text-container">
+      <span id="rotating-text">Smarter CRM Integration</span>
+    </div>
+
     <nav>
       <a href="#features">Services</a>
       <a href="#about">About</a>
@@ -45,16 +51,41 @@
     </section>
   </main>
 
-<footer class="footer">
-  <div class="footer-content">
-    <p>&copy; 2025 JZ Digital Ltd.</p>
-    <div class="footer-contact">
-      <a href="mailto:contact@jzdigitalconsults.co.uk">
-        <i class="fas fa-envelope"></i> contact@jzdigitalconsults.co.uk
-      </a> |
-      <a href="https://www.linkedin.com/company/jz-digital-ltd/" target="_blank" rel="noopener">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 JZ Digital Ltd.</p>
+      <div class="footer-contact">
+        <a href="mailto:contact@jzdigitalconsults.co.uk">
+          <i class="fas fa-envelope"></i> contact@jzdigitalconsults.co.uk
+        </a> |
+        <a href="https://www.linkedin.com/company/jz-digital-ltd/" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
+
+  <!-- Rotating Text Script -->
+  <script>
+    const messages = [
+      "Smarter CRM Integration",
+      "Lean Automation for SMEs",
+      "Compliance-First Workflows",
+      "ISO & GDPR Ready Solutions"
+    ];
+
+    let index = 0;
+    const rotatingText = document.getElementById("rotating-text");
+
+    setInterval(() => {
+      rotatingText.style.opacity = 0;
+
+      setTimeout(() => {
+        index = (index + 1) % messages.length;
+        rotatingText.textContent = messages[index];
+        rotatingText.style.opacity = 1;
+      }, 500);
+    }, 3000);
+  </script>
+</body>
+</html>
