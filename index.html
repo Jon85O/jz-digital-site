@@ -4,47 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JZ Digital | Automate Smarter</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=14" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    .rotating-banner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: auto;
-      text-align: center;
-      position: relative;
-      height: 100px;
-      min-width: 300px;
-    }
-    .rotating-message {
-      position: absolute;
-      opacity: 0;
-      transition: opacity 1.5s ease-in-out;
-      font-size: 1.2rem;
-      color: white;
-      font-weight: 600;
-    }
-    .rotating-message.active {
-      opacity: 1;
-    }
-  </style>
 </head>
 <body>
   <header class="header">
     <div class="brand">
       <img src="images/logo.jpg" alt="JZ Digital Logo" />
-      <h2>JZ Digital</h2>
     </div>
-
-    <div class="rotating-banner">
-      <span class="rotating-message active">Smarter CRM Integration</span>
-      <span class="rotating-message">Lean Automation for SMEs</span>
-      <span class="rotating-message">Compliance-First Workflows</span>
-      <span class="rotating-message">ISO & GDPR Ready Solutions</span>
-    </div>
-
     <nav>
       <a href="#features">Services</a>
       <a href="#about">About</a>
@@ -91,16 +58,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    const banners = document.querySelectorAll('.rotating-message');
-    let index = 0;
-
-    setInterval(() => {
-      banners[index].classList.remove('active');
-      index = (index + 1) % banners.length;
-      banners[index].classList.add('active');
-    }, 5000);
-  </script>
 </body>
 </html>
