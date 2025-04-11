@@ -38,6 +38,7 @@ main {
   object-fit: contain;
   margin-right: 1.5rem;
 }
+
 .header nav a {
   color: #fff;
   margin-left: 1em;
@@ -104,6 +105,7 @@ section.features {
   font-size: 0.9rem;
   margin-top: auto;
 }
+
 .footer-content {
   display: flex;
   flex-direction: column;
@@ -131,7 +133,6 @@ section.features {
   margin-right: 0.5rem;
 }
 
-
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -158,19 +159,40 @@ section.features {
   .card {
     flex: 1 1 100%;
   }
+
   .rotating-text-container {
-  flex: 1;
-  padding-top: 3rem;
-  padding-left: 2rem;
-  font-size: 1.2rem;
-  color: #ffffff;
-  font-weight: 600;
-  min-height: 1.5rem;
-}
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: 500;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 2.5rem;
+  }
 
-#rotating-text {
-  display: inline-block;
-  transition: opacity 0.5s ease-in-out;
-}
+  .message {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    white-space: nowrap;
+  }
 
+  .message.active {
+    opacity: 1;
+    position: relative;
+  }
+
+  .message strong {
+    color: white;
+    font-weight: bold;
+    margin-right: 0.25rem;
+  }
+
+  .message span {
+    color: #ccc;
+  }
 }
