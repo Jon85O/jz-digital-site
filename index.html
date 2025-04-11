@@ -1,97 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JZ Digital | Automate Smarter</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    .rotating-text-container {
-      flex: 1;
-      padding-top: 3rem;
-      padding-left: 2rem;
-      overflow: hidden;
-      height: 2rem;
-      position: relative;
-    }
+<script>
+  const messages = [
+    "Smarter CRM Integration",
+    "Lean Automation for SMEs",
+    "Compliance-First Workflows",
+    "ISO & GDPR Ready Solutions"
+  ];
 
-    #rotating-text {
-      white-space: nowrap;
-      display: inline-block;
-      position: absolute;
-      animation: scroll-text 10s linear infinite;
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 1.2rem;
-    }
+  let index = 0;
+  const rotatingText = document.getElementById("rotating-text");
+  let interval;
 
-    @keyframes scroll-text {
-      0% {
-        left: 100%;
-      }
-      100% {
-        left: -100%;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header class="header">
-    <div class="brand">
-      <img src="images/logo.jpg" alt="JZ Digital Logo" />
-    </div>
+  function startRotation() {
+    interval = setInterval(() => {
+      rotatingText.style.opacity = 0;
 
-    <!-- Scrolling Text -->
-    <div class="rotating-text-container">
-      <span id="rotating-text">Smarter CRM Integration • Lean Automation for SMEs • Compliance-First Workflows • ISO & GDPR Ready Solutions</span>
-    </div>
+      setTimeout(() => {
+        index = (index + 1) % messages.length;
+        rotatingText.textContent = messages[index];
+        rotatingText.style.opacity = 1;
+      }, 500);
+    }, 9000); // ⏳ Slowed down from 3000ms to 9000ms
+  }
 
-    <nav>
-      <a href="#features">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  function stopRotation() {
+    clearInterval(interval);
+  }
 
-  <main>
-    <section class="hero">
-      <h1>Automate Smarter. Work Leaner. Grow Faster.</h1>
-      <p>Streamline your business processes with modern CRM, automation, and compliance solutions.</p>
-      <button class="cta">See Use Cases</button>
-    </section>
+  rotatingText.addEventListener("mouseenter", stopRotation);
+  rotatingText.addEventListener("mouseleave", startRotation);
 
-    <section class="features" id="features">
-      <div class="feature">
-        <i class="fas fa-network-wired"></i>
-        <h3>CRM Integration</h3>
-        <p>Connect and centralize your client data with seamless CRM setup.</p>
-      </div>
-      <div class="feature">
-        <i class="fas fa-file-alt"></i>
-        <h3>Document Automation</h3>
-        <p>Automate reminders, document creation, and storage workflows.</p>
-      </div>
-      <div class="feature">
-        <i class="fas fa-shield-alt"></i>
-        <h3>Compliance-Ready</h3>
-        <p>Solutions built with GDPR, ISO 27001, and audit readiness in mind.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-content">
-      <p>&copy; 2025 JZ Digital Ltd.</p>
-      <div class="footer-contact">
-        <a href="mailto:contact@jzdigitalconsults.co.uk">
-          <i class="fas fa-envelope"></i> contact@jzdigitalconsults.co.uk
-        </a> |
-        <a href="https://www.linkedin.com/company/jz-digital-ltd/" target="_blank" rel="noopener">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-      </div>
-    </div>
-  </footer>
-</body>
-</html>
+  startRotation(); // Start initially
+</script>
