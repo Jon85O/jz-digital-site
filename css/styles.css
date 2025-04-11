@@ -21,19 +21,19 @@ main {
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  min-height: 200px;
+  min-height: 300px;
 }
 
 .brand {
   display: flex;
   align-items: flex-start; /* Align logo and text to top */
   max-width: none; /* Allow full width if needed */
-  height: 200px;
+  height: 300px;
   padding: 0;
 }
 
 .brand img {
-  height: 200px;
+  height: 300px;
   width: auto;
   object-fit: contain;
   margin-right: 1.5rem;
