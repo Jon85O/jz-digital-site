@@ -1,8 +1,16 @@
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
   font-family: 'Segoe UI', sans-serif;
   background-color: #f9f9f9;
   color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 .brand {
@@ -12,7 +20,7 @@ body {
 }
 
 .brand img {
-  height: 60px;
+  height: 75px; /* Bigger logo */
   margin-right: 1rem;
   object-fit: contain;
 }
@@ -30,7 +38,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Ensures responsiveness */
+  flex-wrap: wrap;
 }
 
 .header nav a {
@@ -41,43 +49,53 @@ body {
 }
 
 .hero {
-  background: #0055aa;
-  color: #fff;
-  padding: 3em 2em;
   text-align: center;
+  padding: 4rem 2rem;
+  background: #000000;
+  color: #d4af7f;
 }
 
-.cta-button {
-  background: #fff;
-  color: #0055aa;
-  padding: 0.75em 1.5em;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 1em;
-  border-radius: 5px;
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-.services,
-.about,
-.contact {
-  padding: 2em;
-  max-width: 1000px;
-  margin: auto;
+.cta {
+  background: #d4af7f;
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.grid {
+section.features {
   display: flex;
-  gap: 1em;
+  justify-content: space-around;
+  padding: 3rem 2rem;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 2rem;
 }
 
-.card {
+.feature {
   background: #fff;
+  padding: 1.5rem;
   border: 1px solid #ddd;
-  padding: 1em;
-  flex: 1 1 calc(33% - 1em);
-  min-width: 250px;
+  border-radius: 8px;
+  flex: 1 1 280px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+}
+
+.feature i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #d4af7f;
 }
 
 .footer {
@@ -85,16 +103,14 @@ body {
   color: #fff;
   text-align: center;
   padding: 1em;
-  margin-top: 2em;
+  font-size: 0.9rem;
+  margin-top: auto;
 }
 
 @media (max-width: 768px) {
-  .grid {
+  .header {
     flex-direction: column;
-  }
-
-  .card {
-    flex: 1 1 100%;
+    text-align: center;
   }
 
   .brand {
@@ -102,13 +118,19 @@ body {
     margin-bottom: 1em;
   }
 
-  .header {
-    flex-direction: column;
-    text-align: center;
+  .header nav a {
+    margin: 0 0.5em;
   }
 
-  .header nav a {
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+  section.features {
+    padding: 2rem 1rem;
+  }
+
+  .grid {
+    flex-direction: column;
+  }
+
+  .card {
+    flex: 1 1 100%;
   }
 }
