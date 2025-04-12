@@ -30,6 +30,7 @@ main {
   align-items: flex-start;
   padding: 0;
   max-width: none;
+  margin-bottom: 2rem;
 }
 
 .brand img {
@@ -38,7 +39,6 @@ main {
   width: auto;
   object-fit: contain;
   margin-right: 1.5rem;
-  padding: 1em 2em 0;
 }
 
 .header nav {
