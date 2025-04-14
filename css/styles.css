@@ -27,18 +27,20 @@ main {
 
 .brand {
   display: flex;
-  align-items: flex-start;
+  align-items: center;    /* Vertically center logo */
+  justify-content: flex-start;
+  height: 100%;           /* Allow logo to stretch full height */
   padding: 0;
-  max-width: none;
-  margin-bottom: 3rem;
+  margin: 0;
 }
 
 .brand img {
-  height: auto;
-  max-height: 300px;
+  display: block;
+  max-height: 100%;
+  height: 100%;
   width: auto;
   object-fit: contain;
-  margin-right: 1.5rem;
+  margin: 0;
 }
 
 .header nav {
@@ -187,6 +189,7 @@ section.features {
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
