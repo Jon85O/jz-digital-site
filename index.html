@@ -7,38 +7,6 @@
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    .header {
-      background: #002244;
-      padding: 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-    }
-
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      max-width: 1400px;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      padding: 0;
-      margin: 0;
-    }
-
-    .brand img {
-      max-height: 280px;
-      width: auto;
-      object-fit: contain;
-      margin: 0;
-    }
-
     .rotating-text-container {
       flex: 1;
       padding-top: 2rem;
@@ -84,10 +52,25 @@
       height: auto;
       border-radius: 10px;
     }
+
+    .header-content {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+    }
   </style>
 </head>
 <body>
   <header class="header">
+    <!-- Navigation (moved above header-content) -->
+    <nav>
+      <a href="#features">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Main header layout with logo + messages + video -->
     <div class="header-content">
       <div class="brand">
         <img src="images/logo.jpg" alt="JZ Digital Logo" />
@@ -118,12 +101,6 @@
           Your browser does not support the video tag.
         </video>
       </div>
-
-      <nav>
-        <a href="#features">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
     </div>
   </header>
 
@@ -177,6 +154,7 @@
       messages[index].classList.add('active');
     }, 6000);
   </script>
+
   <video autoplay muted loop class="preview-media">
     <source src="videos/video1.mp4" type="video/mp4" />
     Your browser does not support the video tag.
