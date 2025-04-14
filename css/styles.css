@@ -18,108 +18,40 @@ main {
   color: #fff;
   padding: 1em 2em 0;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
   flex-wrap: wrap;
-  position: relative;
   min-height: 300px;
+  position: relative;
 }
 
-/* Navigation */
-nav {
+.brand {
   display: flex;
-  justify-content: flex-end;
-  gap: 1.5rem;
-  padding: 1rem 2rem;
+  align-items: flex-start;
+  padding: 0;
+  max-width: none;
 }
 
-nav a {
+.brand img {
+  height: auto;
+  max-height: 300px;
+  width: auto;
+  object-fit: contain;
+  margin-right: 1.5rem;
+}
+
+.header nav {
+  margin-left: auto;
+  margin-top: 1.5rem;
+}
+
+.header nav a {
   color: #fff;
+  margin-left: 1em;
   text-decoration: none;
   font-weight: 500;
 }
 
-/* Header content layout */
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-/* Logo */
-.brand {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 1.5rem 0 1.5rem 2rem;
-  max-height: 300px;
-  flex: 1;
-}
-
-.brand img {
-  max-height: 100%;
-  max-width: 100%;
-  height: auto;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
-
-/* Message block */
-.rotating-text-container {
-  flex: 1;
-  padding-top: 2rem;
-  font-size: 1.1rem;
-  color: #ffffff;
-  font-weight: 500;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  min-height: 100px;
-}
-
-.message {
-  position: relative;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  white-space: normal;
-}
-
-.message.active {
-  opacity: 1;
-}
-
-.message strong {
-  color: white;
-  font-weight: bold;
-  margin-right: 0.25rem;
-  display: block;
-  margin-bottom: 0.3rem;
-  font-size: 1.2rem;
-}
-
-.message span {
-  color: #ccc;
-  font-size: 1rem;
-}
-
-/* Video */
-.video-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 2rem;
-}
-
-.video-container video {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-/* Hero section */
 .hero {
   text-align: center;
   padding: 4rem 2rem;
@@ -142,7 +74,6 @@ nav a {
   cursor: pointer;
 }
 
-/* Features */
 section.features {
   display: flex;
   justify-content: space-around;
@@ -171,7 +102,6 @@ section.features {
   color: #d4af7f;
 }
 
-/* Footer */
 .footer {
   background: #002244;
   color: #fff;
@@ -190,15 +120,12 @@ section.features {
 
 .footer-contact {
   font-size: 0.85rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
 }
 
 .footer-contact a {
   color: #fff;
   text-decoration: none;
+  margin: 0 0.4rem;
   display: inline-flex;
   align-items: center;
 }
@@ -211,31 +138,83 @@ section.features {
   margin-right: 0.5rem;
 }
 
-/* Responsive */
+/* === ROTATING MESSAGE AND IMAGE === */
+.message-block {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 1rem;
+  max-width: 100%;
+  gap: 2rem;
+}
+
+.rotating-text-container {
+  max-width: 50%;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.message {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  white-space: normal;
+}
+
+.message.active {
+  opacity: 1;
+  position: relative;
+}
+
+.message strong {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.message span {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+.preview-media {
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
 @media (max-width: 768px) {
-  .header-content {
+  .header {
     flex-direction: column;
-    align-items: center;
+    text-align: center;
   }
 
   .brand {
     justify-content: center;
-    padding-left: 0;
+    margin-bottom: 1em;
+  }
+
+  .message-block {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
   }
 
   .rotating-text-container {
+    max-width: 100%;
     text-align: center;
-    align-items: center;
-    margin-top: 1rem;
-  }
-
-  .video-container {
-    margin-top: 1rem;
   }
 
   .preview-media {
     max-width: 90%;
     margin-top: 1rem;
+  }
+
+  .header nav a {
+    margin: 0 0.5em;
   }
 
   section.features {
