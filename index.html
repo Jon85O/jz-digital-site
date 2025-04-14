@@ -6,103 +6,9 @@
   <title>JZ Digital | Automate Smarter</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    .rotating-text-container {
-      flex: 1;
-      padding-top: 2rem;
-      font-size: 1.1rem;
-      color: #ffffff;
-      font-weight: 500;
-      display: flex;
-      align-items: flex-start;
-      flex-direction: column;
-    }
-
-    .message {
-      position: relative;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-      white-space: normal;
-    }
-
-    .message.active {
-      opacity: 1;
-    }
-
-    .message strong {
-      color: white;
-      font-weight: bold;
-      margin-right: 0.25rem;
-    }
-
-    .message span {
-      color: #ccc;
-    }
-
-    .video-container {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding-top: 2rem;
-    }
-
-    .video-container video {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .header-content {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 1.5rem 0 1.5rem 2rem;
-      max-height: 300px;
-      flex: 1;
-    }
-
-    .brand img {
-      max-height: 100%;
-      max-width: 100%;
-      height: auto;
-      width: auto;
-      object-fit: contain;
-      display: block;
-    }
-
-    nav {
-      display: flex;
-      justify-content: flex-end;
-      gap: 1.5rem;
-      padding: 1rem 2rem;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-    }
-  </style>
 </head>
 <body>
   <header class="header">
-    <!-- Navigation (top right) -->
-    <nav>
-      <a href="#features">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <!-- Logo, rotating message, and video -->
     <div class="header-content">
       <div class="brand">
         <img src="images/logo.jpg" alt="JZ Digital Logo" />
@@ -133,6 +39,12 @@
           Your browser does not support the video tag.
         </video>
       </div>
+
+      <nav>
+        <a href="#features">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
   </header>
 
@@ -179,7 +91,6 @@
   <script>
     const messages = document.querySelectorAll('#rotating-text-container .message');
     let index = 0;
-
     setInterval(() => {
       messages[index].classList.remove('active');
       index = (index + 1) % messages.length;
