@@ -24,6 +24,7 @@ main {
   min-height: 300px;
 }
 
+/* Top navigation */
 nav {
   display: flex;
   justify-content: flex-end;
@@ -37,6 +38,7 @@ nav a {
   font-weight: 500;
 }
 
+/* Header content layout */
 .header-content {
   display: flex;
   justify-content: space-between;
@@ -44,11 +46,12 @@ nav a {
   flex-wrap: wrap;
 }
 
+/* Logo block */
 .brand {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 2rem 0 2rem 2rem;
+  padding: 1.5rem 0 1.5rem 2rem;
   max-height: 300px;
   flex: 1;
 }
@@ -62,6 +65,7 @@ nav a {
   display: block;
 }
 
+/* Message block */
 .rotating-text-container {
   flex: 1;
   padding-top: 2rem;
@@ -99,6 +103,7 @@ nav a {
   font-size: 1rem;
 }
 
+/* Video styling */
 .video-container {
   flex: 1;
   display: flex;
@@ -114,6 +119,7 @@ nav a {
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
+/* Hero section */
 .hero {
   text-align: center;
   padding: 4rem 2rem;
@@ -136,6 +142,7 @@ nav a {
   cursor: pointer;
 }
 
+/* Features */
 section.features {
   display: flex;
   justify-content: space-around;
@@ -164,6 +171,7 @@ section.features {
   color: #d4af7f;
 }
 
+/* Footer */
 .footer {
   background: #002244;
   color: #fff;
@@ -203,6 +211,7 @@ section.features {
   margin-right: 0.5rem;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
@@ -221,6 +230,11 @@ section.features {
   }
 
   .video-container {
+    margin-top: 1rem;
+  }
+
+  .preview-media {
+    max-width: 90%;
     margin-top: 1rem;
   }
 
