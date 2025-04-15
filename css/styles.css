@@ -26,10 +26,11 @@ main {
 
 /* Top navigation */
 nav {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
   display: flex;
-  justify-content: flex-end;
   gap: 1.5rem;
-  padding: 1rem 2rem;
 }
 
 nav a {
