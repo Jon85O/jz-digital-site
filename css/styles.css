@@ -251,3 +251,19 @@ section.features {
     flex: 1 1 100%;
   }
 }
+ .nav-inline {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+.nav-inline a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+}
