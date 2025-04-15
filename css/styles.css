@@ -16,36 +16,111 @@ main {
 .header {
   background: #002244;
   color: #fff;
-  padding: 1em 2em;
+  padding: 1em 2em 0;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
   flex-wrap: wrap;
+  position: relative;
   min-height: 300px;
 }
 
-.brand {
+/* Top navigation */
+nav {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
   display: flex;
-  align-items: flex-start;
-  padding: 0;
-  max-width: none;
+  gap: 1.5rem;
 }
 
-.brand img {
-  height: auto;
-  max-height: 300px;
-  width: auto;
-  object-fit: contain;
-  margin-right: 1.5rem;
-}
-.header nav a {
+nav a {
   color: #fff;
-  margin-left: 1em;
   text-decoration: none;
   font-weight: 500;
-  margin-top: 1.5rem; /* Align nav more closely with top of logo */
 }
 
+/* Header content layout */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Logo block */
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem 0 1.25rem 2rem; /* Reduced top from 1.5rem → 1rem, added bottom 1.25rem */
+  max-height: 300px;
+  flex: 1;
+}
+.brand img {
+  max-height: 280px;     /* Increased from 240px to make it more prominent */
+  max-width: 220px;      /* Slightly wider to maintain balance */
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin-left: 0;        /* Keep it left-aligned */
+}
+
+/* Message block */
+.rotating-text-container {
+  flex: 1;
+  padding-top: 2rem;
+  font-size: 1.1rem;
+  color: #ffffff;
+  font-weight: 500;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  min-height: 100px;
+}
+
+.message {
+  position: relative;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  white-space: normal;
+}
+
+.message.active {
+  opacity: 1;
+}
+
+.message strong {
+  color: white;
+  font-weight: bold;
+  margin-right: 0.25rem;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.message span {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+/* Video styling */
+.video-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 2rem;
+}
+
+.video-container video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Hero section */
 .hero {
   text-align: center;
   padding: 4rem 2rem;
@@ -68,6 +143,7 @@ main {
   cursor: pointer;
 }
 
+/* Features */
 section.features {
   display: flex;
   justify-content: space-around;
@@ -96,6 +172,7 @@ section.features {
   color: #d4af7f;
 }
 
+/* Footer */
 .footer {
   background: #002244;
   color: #fff;
@@ -104,6 +181,7 @@ section.features {
   font-size: 0.9rem;
   margin-top: auto;
 }
+
 .footer-content {
   display: flex;
   flex-direction: column;
@@ -113,12 +191,15 @@ section.features {
 
 .footer-contact {
   font-size: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .footer-contact a {
   color: #fff;
   text-decoration: none;
-  margin: 0 0.4rem;
   display: inline-flex;
   align-items: center;
 }
@@ -131,20 +212,31 @@ section.features {
   margin-right: 0.5rem;
 }
 
-
+/* Responsive Design */
 @media (max-width: 768px) {
-  .header {
+  .header-content {
     flex-direction: column;
-    text-align: center;
+    align-items: center;
   }
 
   .brand {
     justify-content: center;
-    margin-bottom: 1em;
+    padding-left: 0;
   }
 
-  .header nav a {
-    margin: 0 0.5em;
+  .rotating-text-container {
+    text-align: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .video-container {
+    margin-top: 1rem;
+  }
+
+  .preview-media {
+    max-width: 90%;
+    margin-top: 1rem;
   }
 
   section.features {
@@ -158,19 +250,4 @@ section.features {
   .card {
     flex: 1 1 100%;
   }
-  .rotating-text-container {
-  flex: 1;
-  padding-top: 3rem;
-  padding-left: 2rem;
-  font-size: 1.2rem;
-  color: #ffffff;
-  font-weight: 600;
-  min-height: 1.5rem;
-}
-
-#rotating-text {
-  display: inline-block;
-  transition: opacity 0.5s ease-in-out;
-}
-
 }
