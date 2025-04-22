@@ -310,3 +310,29 @@ section.features {
   line-height: 1.5;
   color: #555;
 }
+/* 1) turn your header into a flex row */
+.header .header-content {
+  display: flex;
+  align-items: center;           /* vertically center logo, text & video */
+  justify-content: space-between;/* space out brand / rotator / nav */
+}
+
+/* 2) allow the rotating text area to flex-grow */
+.rotating-text-container {
+  flex: 1;               /* take up all the free space between logo & video */
+  margin: 0 1rem;        /* optional gutter */
+}
+
+/* 3) size the video container */
+.video-container {
+  flex: none;            /* don’t grow or shrink */
+  max-height: 120px;     /* ← tweak this to match your header’s height */
+  overflow: hidden;      /* hide any overflow if aspect ratio differs */
+}
+
+/* 4) make the <video> fill that container */
+.video-container video {
+  height: 100%;
+  width: auto;           /* preserves aspect ratio */
+  display: block;
+}
