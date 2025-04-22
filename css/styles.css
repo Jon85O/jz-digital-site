@@ -233,3 +233,23 @@ section.features {
   padding-top: 0;
   padding-bottom: 0;
 }
+/* Stack all messages on top of each other */
+.rotating-text-container {
+  position: relative;    /* establish a containing block for absolute children */
+  min-height: 3.5rem;    /* or whatever height fits one message */
+}
+
+/* Absolutely position each message to fill the container */
+.rotating-text-container .message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Only the active message fades in */
+.rotating-text-container .message.active {
+  opacity: 1;
+}
