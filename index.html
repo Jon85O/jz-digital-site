@@ -14,7 +14,6 @@
   <!-- Header + Nav -->
   <header class="header">
     <div class="header-content">
-
       <!-- Logo -->
       <div class="brand">
         <img src="images/logo.jpg" alt="JZ Digital Logo" />
@@ -24,23 +23,31 @@
       <div class="rotating-text-container" id="rotating-text-container">
         <div class="message active" data-video="video/video1.mp4">
           <strong>Smarter CRM Integration:</strong>
-          <span>Build stronger relationships with CRM solutions that adapt to how your business actually works.</span>
+          <span>
+            Build stronger relationships with CRM solutions that adapt to how your business actually works.
+          </span>
         </div>
         <div class="message" data-video="video/video2.mp4">
           <strong>Lean Automation for SMEs:</strong>
-          <span>Automate the busywork so your team can focus on what moves the business forward.</span>
+          <span>
+            Automate the busywork so your team can focus on what moves the business forward.
+          </span>
         </div>
         <div class="message" data-video="video/video3.mp4">
           <strong>Compliance-First Workflows:</strong>
-          <span>Streamline operations while meeting regulatory requirements with workflows designed for control.</span>
+          <span>
+            Streamline operations while meeting regulatory requirements with workflows designed for control.
+          </span>
         </div>
         <div class="message" data-video="video/video4.mp4">
           <strong>ISO & GDPR Ready Solutions:</strong>
-          <span>Stay ahead of audits and protect data with compliance built into every layer of your solution.</span>
+          <span>
+            Stay ahead of audits and protect data with compliance built into every layer of your solution.
+          </span>
         </div>
       </div>
 
-      <!-- Video Container -->
+      <!-- Video Container (only the <video> element goes here!) -->
       <div class="video-container video-outline">
         <video id="hero-video" autoplay muted playsinline>
           <source src="video/video1.mp4" type="video/mp4" />
@@ -55,7 +62,6 @@
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
-
     </div>
   </header>
 
@@ -115,7 +121,7 @@
     </div>
   </footer>
 
-  <!-- Rotation + Video-swap Script -->
+  <!-- ==== Only this single script at the end of the body! ==== -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const messages = document.querySelectorAll('#rotating-text-container .message');
@@ -123,15 +129,15 @@
       let index = 0;
 
       function rotate() {
-        // Hide old message
+        // hide current message
         messages[index].classList.remove('active');
-        // Advance index
+        // next index
         index = (index + 1) % messages.length;
-        // Show new message
+        // show next
         const msg = messages[index];
         msg.classList.add('active');
 
-        // Swap video source
+        // swap video
         const newSrc = msg.getAttribute('data-video');
         const srcEl  = videoEl.querySelector('source');
         if (!srcEl.src.endsWith(newSrc)) {
@@ -141,7 +147,6 @@
         videoEl.play();
       }
 
-      // When video ends, trigger rotate()
       videoEl.addEventListener('ended', rotate);
     });
   </script>
