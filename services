@@ -1,11 +1,3 @@
-**Services Page Outline**
-
-Below is a starting point for your **Services** page that matches the look-and-feel of your homepage. It reuses your header and footer, then adds a hero section and a detailed services listing.
-
----
-
-```html
-<!-- services.html -->
 <!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -104,16 +96,3 @@ Below is a starting point for your **Services** page that matches the look-and-f
       </div>
     </div>
   </footer>
-```
-
----
-
-**Next Steps:**
-
-1. Add CSS rules for `.services-hero`, `.services-list`, `.service-item`, and `.cta-section` in your `styles.css` to match your branding and layout (grid or flex).
-2. Link your navigation so the active page is highlighted.
-3. Replace placeholder icons or text as needed, and adjust copy to match your actual offerings.
-
-Let me know which styling approach you prefer (grid vs flex), and I can generate the accompanying CSS snippets!
-
-
