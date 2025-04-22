@@ -253,3 +253,24 @@ section.features {
 .rotating-text-container .message.active {
   opacity: 1;
 }
+/* Outline the video region for layout debugging */
+.video-outline {
+  position: relative;
+  border: 2px dashed rgba(255, 255, 255, 0.8);
+  padding: 0.5rem;
+}
+
+/* Optional: show the placeholder text until the video loads */
+.video-outline::before {
+  content: "VIDEO REGION";
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.8);
+  background: rgba(0,0,0,0.5);
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  pointer-events: none;
+}
+
