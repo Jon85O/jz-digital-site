@@ -55,10 +55,36 @@
       <!-- Video with outline placeholder -->
       <div class="video-container video-outline">
         <!-- ▶ Video REGION -->
-          <video id="hero-video" autoplay muted playsinline>
-            <source src="video/video1.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+<script>
+  const messages = document.querySelectorAll(
+    "#rotating-text-container .message"
+  );
+  const videoEl = document.getElementById("hero-video");
+  let index = 0;
+
+  function rotate() {
+    // hide current message
+    messages[index].classList.remove("active");
+    // advance index
+    index = (index + 1) % messages.length;
+    // show next message
+    const msg = messages[index];
+    msg.classList.add("active");
+
+    // swap video source
+    const newSrc = msg.getAttribute("data-video");
+    const srcEl = videoEl.querySelector("source");
+    if (!srcEl.src.endsWith(newSrc)) {
+      srcEl.src = newSrc;
+      videoEl.load();
+    }
+    videoEl.play();
+  }
+
+  // when the video ends, rotate both text + video
+  videoEl.addEventListener("ended", rotate);
+</script>
+
 
       </div>
 
