@@ -1,4 +1,4 @@
-<!-- index.html -->
+<!-- index.html (unchanged) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,31 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JZ Digital | Automate Smarter</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
-  <!-- Header / Nav -->
   <header class="header">
-    <div class="container header-inner">
+    <!-- Navigation -->
+    <div class="header-content">
       <div class="brand">
         <img src="images/logo.jpg" alt="JZ Digital Logo" />
       </div>
-      <nav class="nav-inline">
-        <a href="#features">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <!-- Rotating Text Column -->
       <div class="rotating-text-container" id="rotating-text-container">
+        <!-- Rotating messages -->
         <div class="message active">
           <strong>Smarter CRM Integration:</strong>
           <span>Build stronger relationships with CRM solutions that adapt to how your business actually works.</span>
@@ -49,25 +36,32 @@
         </div>
       </div>
 
-      <!-- Video Column -->
       <div class="video-container">
-        <video autoplay loop muted playsinline>
+        <video autoplay loop muted playsinline width="320" height="180">
           <source src="media/video1.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
-    </div>
 
-    <!-- Hero Headline + CTA -->
-    <div class="container hero-content">
+      <div class="video-container">
+        <!-- Video -->
+      </div>
+
+      <nav class="nav-inline">
+        <a href="#features">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
       <h1>Automate Smarter. Work Leaner. Grow Faster.</h1>
       <p>Streamline your business processes with modern CRM, automation, and compliance solutions.</p>
       <button class="cta">See Use Cases</button>
-    </div>
-  </section>
+    </section>
 
-  <!-- Features -->
-  <main>
     <section class="features" id="features">
       <div class="feature">
         <i class="fas fa-network-wired"></i>
@@ -87,36 +81,27 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer" id="contact">
-    <div class="container footer-content">
+  <footer class="footer">
+    <div class="footer-content">
       <p>&copy; 2024 JZ Digital Ltd.</p>
       <div class="footer-contact">
         <a href="mailto:contact@jzdigitalconsults.co.uk">
           <i class="fas fa-envelope"></i> contact@jzdigitalconsults.co.uk
-        </a>
-        |
-        <a
-          href="https://www.linkedin.com/company/jz-digital-ltd/"
-          target="_blank"
-          rel="noopener"
-        >
+        </a> |
+        <a href="https://www.linkedin.com/company/jz-digital-ltd/" target="_blank" rel="noopener">
           <i class="fab fa-linkedin"></i> LinkedIn
         </a>
       </div>
     </div>
   </footer>
 
-  <!-- Rotating Text Script -->
   <script>
-    const messages = document.querySelectorAll(
-      "#rotating-text-container .message"
-    );
+    const messages = document.querySelectorAll('#rotating-text-container .message');
     let index = 0;
     setInterval(() => {
-      messages[index].classList.remove("active");
+      messages[index].classList.remove('active');
       index = (index + 1) % messages.length;
-      messages[index].classList.add("active");
+      messages[index].classList.add('active');
     }, 6000);
   </script>
 </body>
