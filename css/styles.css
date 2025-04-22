@@ -273,4 +273,35 @@ section.features {
   border-radius: 3px;
   pointer-events: none;
 }
-
+/* Services page cards (reuse homepage feature styles) */
+.services-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 3rem 0;
+}
+.service-card {
+  background: #fff;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  flex: 1 1 280px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+}
+.service-card i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+.service-card h3 {
+  margin-bottom: 0.5rem;
+}
+.service-card p {
+  line-height: 1.5;
+  color: #555;
+}
