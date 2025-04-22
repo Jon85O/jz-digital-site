@@ -1,4 +1,3 @@
-<!-- index.html (unchanged) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,45 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JZ Digital | Automate Smarter</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
 </head>
 <body>
+  <!-- Header + Nav -->
   <header class="header">
-    <!-- Navigation -->
     <div class="header-content">
       <div class="brand">
         <img src="images/logo.jpg" alt="JZ Digital Logo" />
       </div>
 
       <div class="rotating-text-container" id="rotating-text-container">
-        <!-- Rotating messages -->
-        <div class="message active">
+        <div
+          class="message active"
+          data-video="video/video1.mp4"
+        >
           <strong>Smarter CRM Integration:</strong>
-          <span>Build stronger relationships with CRM solutions that adapt to how your business actually works.</span>
+          <span
+            >Build stronger relationships with CRM solutions that adapt to
+            how your business actually works.</span
+          >
         </div>
-        <div class="message">
+        <div class="message" data-video="video/video2.mp4">
           <strong>Lean Automation for SMEs:</strong>
-          <span>Automate the busywork so your team can focus on what moves the business forward.</span>
+          <span
+            >Automate the busywork so your team can focus on what moves the
+            business forward.</span
+          >
         </div>
-        <div class="message">
+        <div class="message" data-video="video/video3.mp4">
           <strong>Compliance-First Workflows:</strong>
-          <span>Streamline operations while meeting regulatory requirements with workflows designed for control.</span>
+          <span
+            >Streamline operations while meeting regulatory requirements with
+            workflows designed for control.</span
+          >
         </div>
-        <div class="message">
+        <div class="message" data-video="video/video4.mp4">
           <strong>ISO & GDPR Ready Solutions:</strong>
-          <span>Stay ahead of audits and protect data with compliance built into every layer of your solution.</span>
+          <span
+            >Stay ahead of audits and protect data with compliance built into
+            every layer of your solution.</span
+          >
         </div>
       </div>
 
-      <div class="video-container">
-        <video autoplay loop muted playsinline width="320" height="180">
-          <source src="media/video1.mp4" type="video/mp4" />
+      <!-- Video with outline placeholder -->
+      <div class="video-container video-outline">
+        <!-- ▶ Video REGION -->
+        <video id="hero-video" autoplay loop muted playsinline>
+          <source src="video/video1.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-      </div>
-
-      <div class="video-container">
-        <!-- Video -->
       </div>
 
       <nav class="nav-inline">
@@ -55,53 +69,82 @@
     </div>
   </header>
 
+  <!-- Hero Section -->
   <main>
     <section class="hero">
       <h1>Automate Smarter. Work Leaner. Grow Faster.</h1>
-      <p>Streamline your business processes with modern CRM, automation, and compliance solutions.</p>
+      <p>
+        Streamline your business processes with modern CRM, automation, and
+        compliance solutions.
+      </p>
       <button class="cta">See Use Cases</button>
     </section>
 
+    <!-- Features -->
     <section class="features" id="features">
       <div class="feature">
         <i class="fas fa-network-wired"></i>
         <h3>CRM Integration</h3>
-        <p>Connect and centralize your client data with seamless CRM setup.</p>
+        <p>
+          Connect and centralize your client data with seamless CRM setup.
+        </p>
       </div>
       <div class="feature">
         <i class="fas fa-file-alt"></i>
         <h3>Document Automation</h3>
-        <p>Automate reminders, document creation, and storage workflows.</p>
+        <p>
+          Automate reminders, document creation, and storage workflows.
+        </p>
       </div>
       <div class="feature">
         <i class="fas fa-shield-alt"></i>
         <h3>Compliance-Ready</h3>
-        <p>Solutions built with GDPR, ISO 27001, and audit readiness in mind.</p>
+        <p>
+          Solutions built with GDPR, ISO 27001, and audit readiness in mind.
+        </p>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+  <!-- Footer -->
+  <footer class="footer" id="contact">
     <div class="footer-content">
       <p>&copy; 2024 JZ Digital Ltd.</p>
       <div class="footer-contact">
         <a href="mailto:contact@jzdigitalconsults.co.uk">
           <i class="fas fa-envelope"></i> contact@jzdigitalconsults.co.uk
-        </a> |
-        <a href="https://www.linkedin.com/company/jz-digital-ltd/" target="_blank" rel="noopener">
+        </a>
+        |
+        <a
+          href="https://www.linkedin.com/company/jz-digital-ltd/"
+          target="_blank"
+          rel="noopener"
+        >
           <i class="fab fa-linkedin"></i> LinkedIn
         </a>
       </div>
     </div>
   </footer>
 
+  <!-- Rotation & Video-Swap Script -->
   <script>
-    const messages = document.querySelectorAll('#rotating-text-container .message');
+    const messages = document.querySelectorAll(
+      "#rotating-text-container .message"
+    );
+    const videoEl = document.getElementById("hero-video");
     let index = 0;
+
     setInterval(() => {
-      messages[index].classList.remove('active');
+      messages[index].classList.remove("active");
       index = (index + 1) % messages.length;
-      messages[index].classList.add('active');
+      const msg = messages[index];
+      msg.classList.add("active");
+
+      // swap video source
+      const newSrc = msg.getAttribute("data-video");
+      videoEl.querySelector("source").src = newSrc;
+      videoEl.load();
+      videoEl.play();
     }, 6000);
   </script>
 </body>
