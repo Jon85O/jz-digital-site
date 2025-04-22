@@ -106,10 +106,12 @@ nav a {
   padding-top: 2rem;
 }
 .video-container video {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  width: 100%;            /* fill the width of its container */
+  max-width: 600px;       /* never exceed 600px wide */
+  aspect-ratio: 16 / 9;   /* keep a 16:9 box */
+  object-fit: cover;      /* crop/fill so it always fills the box */
+}
+
 }
 
 /* Hero section */
