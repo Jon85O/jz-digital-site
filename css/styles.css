@@ -1,8 +1,6 @@
 /* css/styles.css */
 
-/* ──────────────────────────────────────────────────────────────
-   Base reset & globals
-────────────────────────────────────────────────────────────── */
+/* Base reset & globals */
 html, body {
   margin: 0;
   padding: 0;
@@ -17,124 +15,108 @@ main {
   flex: 1;
 }
 
-/* ──────────────────────────────────────────────────────────────
-   Header (flex row)
-────────────────────────────────────────────────────────────── */
+/* Header */
 .header {
   background: #002244;
   color: #fff;
+  padding: 0;
   display: flex;
-  align-items: center;     /* vertically center all children */
-  padding: 1rem 2rem;
+  flex-direction: column;
+  position: relative;
+  min-height: 300px;
 }
 
-/* container for logo / text / video / nav */
+/* Top navigation */
+nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Header content layout */
 .header-content {
   display: flex;
-  align-items: center;     /* center logo, text, video, nav */
+  align-items: flex-start;       /* 👈 changed from center */
   justify-content: space-between;
-  width: 100%;
+  padding: 1rem 2rem 2rem;
   gap: 2rem;
 }
 
-/* ──────────────────────────────────────────────────────────────
-   Logo block
-────────────────────────────────────────────────────────────── */
+/* Logo block */
 .brand {
-  flex: none;              /* fixed size */
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  flex: 0 0 auto;
 }
 .brand img {
-  max-height: 120px;       /* controls header height */
+  max-height: 240px;
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
 }
 
-/* ──────────────────────────────────────────────────────────────
-   Rotating text block
-────────────────────────────────────────────────────────────── */
+/* Message block */
 .rotating-text-container {
-  flex: 1;                 /* fill space between logo & video */
-  margin: 0 1rem;          /* optional gutter */
-  position: relative;      /* for absolutely‐positioned messages */
-  min-height: 3.5rem;      /* reserve height for one message */
+  flex: 1;
+  padding-top: 0;                /* 👈 changed from 2rem */
   font-size: 1.1rem;
-  color: #fff;
+  color: #ffffff;
   font-weight: 500;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  min-height: 100px;
 }
-
-/* stack messages atop each other */
-.rotating-text-container .message {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+.message {
+  position: relative;
   opacity: 0;
   transition: opacity 1s ease-in-out;
   white-space: normal;
 }
-.rotating-text-container .message.active {
+.message.active {
   opacity: 1;
 }
-.rotating-text-container .message strong {
+.message strong {
+  color: white;
+  font-weight: bold;
+  margin-right: 0.25rem;
   display: block;
   margin-bottom: 0.3rem;
-  color: #fff;
   font-size: 1.2rem;
 }
-.rotating-text-container .message span {
+.message span {
   color: #ccc;
   font-size: 1rem;
 }
 
-/* ──────────────────────────────────────────────────────────────
-   Video styling (match header height)
-────────────────────────────────────────────────────────────── */
+/* Video styling */
 .video-container {
-  flex: none;              /* fixed size */
-  max-height: 120px;       /* same as logo max-height */
-  overflow: hidden;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 2rem;
 }
 .video-container video {
-  height: 100%;
-  width: auto;             /* preserve aspect ratio */
-  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-/* ──────────────────────────────────────────────────────────────
-   Top navigation override (flush top)
-────────────────────────────────────────────────────────────── */
-.header-content .nav-inline {
-  align-self: flex-start;  /* push nav up if needed */
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-/* Navigation links */
-.nav-inline {
-  display: flex;
-  gap: 1.5rem;
-}
-.nav-inline a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-}
-.nav-inline a:hover,
-.nav-inline a.active {
-  color: #d4af7f;
-}
-
-/* ──────────────────────────────────────────────────────────────
-   Hero Section
-────────────────────────────────────────────────────────────── */
+/* Hero section */
 .hero {
   text-align: center;
   padding: 4rem 2rem;
-  background: #000;
+  background: #000000;
   color: #d4af7f;
 }
 .hero h1 {
@@ -151,19 +133,15 @@ main {
   cursor: pointer;
 }
 
-/* ──────────────────────────────────────────────────────────────
-   Features / Services Cards
-────────────────────────────────────────────────────────────── */
-.features,
-.services-cards {
+/* Features */
+section.features {
   display: flex;
   justify-content: space-around;
+  padding: 3rem 2rem;
   flex-wrap: wrap;
   gap: 2rem;
-  padding: 3rem 2rem;
 }
-.feature,
-.service-card {
+.feature {
   background: #fff;
   padding: 1.5rem;
   border: 1px solid #ddd;
@@ -172,36 +150,23 @@ main {
   text-align: center;
   transition: transform 0.3s ease;
 }
-.feature:hover,
-.service-card:hover {
+.feature:hover {
   transform: translateY(-5px);
 }
-.feature i,
-.service-card i {
+.feature i {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #d4af7f;
 }
-.service-card h3,
-.feature h3 {
-  margin-bottom: 0.5rem;
-}
-.service-card p,
-.feature p {
-  color: #555;
-  line-height: 1.5;
-}
 
-/* ──────────────────────────────────────────────────────────────
-   Footer
-────────────────────────────────────────────────────────────── */
+/* Footer */
 .footer {
   background: #002244;
   color: #fff;
   text-align: center;
-  padding: 1rem;
-  margin-top: auto;
+  padding: 1em;
   font-size: 0.9rem;
+  margin-top: auto;
 }
 .footer-content {
   display: flex;
@@ -210,11 +175,11 @@ main {
   gap: 0.4rem;
 }
 .footer-contact {
+  font-size: 0.85rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.5rem;
-  font-size: 0.85rem;
 }
 .footer-contact a {
   color: #fff;
@@ -229,27 +194,114 @@ main {
   margin-right: 0.5rem;
 }
 
-/* ──────────────────────────────────────────────────────────────
-   Responsive tweaks
-────────────────────────────────────────────────────────────── */
+/* Responsive Design */
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: stretch;
-  }
   .header-content {
     flex-direction: column;
     align-items: center;
   }
+  .brand {
+    justify-content: center;
+    padding-left: 0;
+  }
   .rotating-text-container {
-    margin: 1rem 0;
     text-align: center;
+    align-items: center;
+    margin-top: 1rem;
   }
   .video-container {
-    margin: 1rem 0;
+    margin-top: 1rem;
   }
-  .features,
-  .services-cards {
+  .preview-media {
+    max-width: 90%;
+    margin-top: 1rem;
+  }
+  section.features {
     padding: 2rem 1rem;
   }
+  .grid {
+    flex-direction: column;
+  }
+  .card {
+    flex: 1 1 100%;
+  }
+}
+
+/* Nav override to sit flush at the top */
+.header-content .nav-inline {
+  align-self: flex-start;        /* 👈 force nav to top line */
+  padding-top: 0;
+  padding-bottom: 0;
+}
+/* Stack all messages on top of each other */
+.rotating-text-container {
+  position: relative;    /* establish a containing block for absolute children */
+  min-height: 3.5rem;    /* or whatever height fits one message */
+}
+
+/* Absolutely position each message to fill the container */
+.rotating-text-container .message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Only the active message fades in */
+.rotating-text-container .message.active {
+  opacity: 1;
+}
+/* Outline the video region for layout debugging */
+.video-outline {
+  position: relative;
+  border: 2px dashed rgba(255, 255, 255, 0.8);
+  padding: 0.5rem;
+}
+
+/* Optional: show the placeholder text until the video loads */
+.video-outline::before {
+  content: "VIDEO REGION";
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.8);
+  background: rgba(0,0,0,0.5);
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  pointer-events: none;
+}
+/* Services page cards (reuse homepage feature styles) */
+.services-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 3rem 0;
+}
+.service-card {
+  background: #fff;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  flex: 1 1 280px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+}
+.service-card i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+.service-card h3 {
+  margin-bottom: 0.5rem;
+}
+.service-card p {
+  line-height: 1.5;
+  color: #555;
 }
