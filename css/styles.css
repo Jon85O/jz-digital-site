@@ -1,8 +1,8 @@
-/* css/styles.css */
-
 /* ──────────────────────────────────────────────────────────────
-   Base reset & globals
+   css/styles.css — FULL WORKING COPY
 ────────────────────────────────────────────────────────────── */
+
+/* Base reset & globals */
 html, body {
   margin: 0;
   padding: 0;
@@ -17,46 +17,41 @@ main {
   flex: 1;
 }
 
-/* ──────────────────────────────────────────────────────────────
-   Header (flex row)
-────────────────────────────────────────────────────────────── */
+/* Header */
 .header {
-  background: #002244;
+  background: #002244;        /* deep navy */
   color: #fff;
   display: flex;
-  align-items: center;     /* vertically center children */
+  align-items: center;        /* vertical center */
   padding: 1rem 2rem;
 }
-
-/* container for logo / text / video / nav */
 .header-content {
   display: flex;
-  align-items: center;     /* center logo, text, video, nav */
+  align-items: center;
   justify-content: space-between;
   width: 100%;
   gap: 2rem;
 }
 
-/* Logo block */
+/* Logo */
 .brand {
-  flex: none;              /* fixed size */
+  flex: none;
   display: flex;
   align-items: center;
 }
 .brand img {
-  max-height: 120px;       /* controls header height */
+  max-height: 120px;          /* controls header height */
   width: auto;
-  height: auto;
   object-fit: contain;
   display: block;
 }
 
-/* Rotating text block */
+/* Rotating text */
 .rotating-text-container {
-  flex: 1;                 /* fill space between logo & video */
-  margin: 0 1rem;          /* optional gutter */
-  position: relative;      /* for absolutely‐positioned messages */
-  min-height: 3.5rem;      /* reserve height for one message */
+  flex: 1;
+  margin: 0 1rem;
+  position: relative;
+  min-height: 3.5rem;
   font-size: 1.1rem;
   color: #fff;
   font-weight: 500;
@@ -68,7 +63,6 @@ main {
   width: 100%;
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  white-space: normal;
 }
 .rotating-text-container .message.active {
   opacity: 1;
@@ -76,27 +70,28 @@ main {
 .rotating-text-container .message strong {
   display: block;
   margin-bottom: 0.3rem;
-  color: #fff;
   font-size: 1.2rem;
+  color: #fff;
 }
 .rotating-text-container .message span {
+  display: block;
   color: #ccc;
   font-size: 1rem;
 }
 
-/* Video styling (match header height) */
+/* Video */
 .video-container {
-  flex: none;              /* fixed size */
-  max-height: 120px;       /* same as logo max-height */
+  flex: none;
+  max-height: 120px;
   overflow: hidden;
 }
 .video-container video {
   height: 100%;
-  width: auto;             /* preserve aspect ratio */
+  width: auto;
   display: block;
 }
 
-/* Navigation links */
+/* Navigation */
 .nav-inline {
   display: flex;
   gap: 1.5rem;
@@ -108,18 +103,10 @@ main {
 }
 .nav-inline a:hover,
 .nav-inline a.active {
-  color: #d4af7f;
+  color: #d4af7f;             /* gold accent */
 }
 
-/* top-nav flush-to-top override */
-.header-content .nav-inline {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-/* ──────────────────────────────────────────────────────────────
-   Hero Section
-────────────────────────────────────────────────────────────── */
+/* Hero Section */
 .hero {
   text-align: center;
   padding: 4rem 2rem;
@@ -140,9 +127,7 @@ main {
   cursor: pointer;
 }
 
-/* ──────────────────────────────────────────────────────────────
-   Features / Services Cards
-────────────────────────────────────────────────────────────── */
+/* Features / Services Cards */
 .features,
 .services-cards {
   display: flex;
@@ -181,9 +166,7 @@ main {
   line-height: 1.5;
 }
 
-/* ──────────────────────────────────────────────────────────────
-   Footer
-────────────────────────────────────────────────────────────── */
+/* Footer */
 .footer {
   background: #002244;
   color: #fff;
@@ -218,9 +201,7 @@ main {
   margin-right: 0.5rem;
 }
 
-/* ──────────────────────────────────────────────────────────────
-   Responsive tweaks
-────────────────────────────────────────────────────────────── */
+/* Responsive */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
