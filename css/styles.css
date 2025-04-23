@@ -35,37 +35,40 @@ main {
   width: 100%;
   gap: 2rem;
 
-  /* prevent items from dropping to a new line */
+  /* prevent any items from wrapping to a new line */
   flex-wrap: nowrap;
 }
 
 /* ──────────────────────────────────────────────────────────────
-   Logo block
+   Logo block (fixed, no shrink)
 ────────────────────────────────────────────────────────────── */
 .brand {
-  flex: none;
+  flex: 0 0 auto;          /* do not grow or shrink */
   display: flex;
   align-items: center;
 }
 .brand img {
-  max-height: 120px;
+  max-height: 120px;       /* controls header height */
   width: auto;
-  object-fit: contain;
   display: block;
 }
 
 /* ──────────────────────────────────────────────────────────────
-   Rotating text block (allow shrink)
+   Rotating text block (fluid, but no wrap)
 ────────────────────────────────────────────────────────────── */
 .rotating-text-container {
-  flex: 1;
-  min-width: 0;            /* lets this area shrink below its content width */
+  flex: 1 1 auto;          /* fill remaining space */
+  min-width: 0;            /* allow it to shrink below content width */
   margin: 0 1rem;
-  position: relative;      /* for absolutely‐positioned messages */
-  min-height: 3.5rem;      /* reserve height for one message */
+  position: relative;      
+  min-height: 3.5rem;      
   font-size: 1.1rem;
   color: #fff;
   font-weight: 500;
+
+  /* clamp overflow and force single-line */
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /* stack messages atop each other */
@@ -76,14 +79,16 @@ main {
   width: 100%;
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  white-space: normal;
+
+  /* ensure no wrap inside each message */
+  white-space: nowrap;
 }
 .rotating-text-container .message.active {
   opacity: 1;
 }
 .rotating-text-container .message strong {
-  display: block;
-  margin-bottom: 0.3rem;
+  display: inline-block;
+  margin-right: 0.5rem;
   color: #fff;
   font-size: 1.2rem;
 }
@@ -93,17 +98,16 @@ main {
 }
 
 /* ──────────────────────────────────────────────────────────────
-   Video styling (fixed height, no shrink)
+   Video styling (fixed, no shrink)
 ────────────────────────────────────────────────────────────── */
 .video-container {
-  flex: none;              /* don’t grow or shrink */
-  min-width: 0;            /* allow flex‐row to fit */
-  max-height: 120px;       /* match logo height */
+  flex: 0 0 auto;          /* do not grow or shrink */
+  max-height: 120px;       
   overflow: hidden;
 }
 .video-container video {
   height: 100%;
-  width: auto;             /* preserve aspect ratio */
+  width: auto;             
   display: block;
 }
 
@@ -114,8 +118,8 @@ main {
   display: flex;
   gap: 1.5rem;
 
-  /* keep all links on one line */
-  flex: none;
+  /* keep all links on one line and prevent shrink */
+  flex: 0 0 auto;
 }
 .nav-inline a {
   color: #fff;
@@ -239,10 +243,11 @@ main {
   .header-content {
     flex-direction: column;
     align-items: center;
-    flex-wrap: wrap; /* allow wrap on small screens */
+    flex-wrap: wrap;
   }
   .rotating-text-container {
-    margin: 1rem 0;
+    white-space: normal;  /* allow wrapping on small screens */
+    overflow: visible;
     text-align: center;
   }
   .video-container {
