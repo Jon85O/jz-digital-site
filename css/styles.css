@@ -18,47 +18,49 @@ main {
 }
 
 /* ──────────────────────────────────────────────────────────────
-   Header (flex row)
+   Header (flex row, no wrap)
 ────────────────────────────────────────────────────────────── */
 .header {
   background: #002244;
   color: #fff;
   display: flex;
-  align-items: center;     /* vertically center all children */
+  align-items: center;
   padding: 1rem 2rem;
 }
 
-/* container for logo / text / video / nav */
 .header-content {
   display: flex;
-  align-items: center;     /* center logo, text, video, nav */
+  align-items: center;
   justify-content: space-between;
   width: 100%;
   gap: 2rem;
+
+  /* prevent items from dropping to a new line */
+  flex-wrap: nowrap;
 }
 
 /* ──────────────────────────────────────────────────────────────
    Logo block
 ────────────────────────────────────────────────────────────── */
 .brand {
-  flex: none;              /* fixed size */
+  flex: none;
   display: flex;
   align-items: center;
 }
 .brand img {
-  max-height: 120px;       /* controls header height */
+  max-height: 120px;
   width: auto;
-  height: auto;
   object-fit: contain;
   display: block;
 }
 
 /* ──────────────────────────────────────────────────────────────
-   Rotating text block
+   Rotating text block (allow shrink)
 ────────────────────────────────────────────────────────────── */
 .rotating-text-container {
-  flex: 1;                 /* fill space between logo & video */
-  margin: 0 1rem;          /* optional gutter */
+  flex: 1;
+  min-width: 0;            /* lets this area shrink below its content width */
+  margin: 0 1rem;
   position: relative;      /* for absolutely‐positioned messages */
   min-height: 3.5rem;      /* reserve height for one message */
   font-size: 1.1rem;
@@ -91,11 +93,12 @@ main {
 }
 
 /* ──────────────────────────────────────────────────────────────
-   Video styling (match header height)
+   Video styling (fixed height, no shrink)
 ────────────────────────────────────────────────────────────── */
 .video-container {
-  flex: none;              /* fixed size */
-  max-height: 120px;       /* same as logo max-height */
+  flex: none;              /* don’t grow or shrink */
+  min-width: 0;            /* allow flex‐row to fit */
+  max-height: 120px;       /* match logo height */
   overflow: hidden;
 }
 .video-container video {
@@ -105,18 +108,14 @@ main {
 }
 
 /* ──────────────────────────────────────────────────────────────
-   Top navigation override (flush top)
+   Navigation (inline, no shrink)
 ────────────────────────────────────────────────────────────── */
-.header-content .nav-inline {
-  align-self: flex-start;  /* push nav up if needed */
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-/* Navigation links */
 .nav-inline {
   display: flex;
   gap: 1.5rem;
+
+  /* keep all links on one line */
+  flex: none;
 }
 .nav-inline a {
   color: #fff;
@@ -240,6 +239,7 @@ main {
   .header-content {
     flex-direction: column;
     align-items: center;
+    flex-wrap: wrap; /* allow wrap on small screens */
   }
   .rotating-text-container {
     margin: 1rem 0;
