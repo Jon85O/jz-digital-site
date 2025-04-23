@@ -1,9 +1,8 @@
+/* css/styles.css */
+
 /* ──────────────────────────────────────────────────────────────
    Base reset & globals
 ────────────────────────────────────────────────────────────── */
-* {
-  box-sizing: border-box;
-}
 html, body {
   margin: 0;
   padding: 0;
@@ -11,8 +10,6 @@ html, body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f9f9f9;
   color: #333;
-}
-body {
   display: flex;
   flex-direction: column;
 }
@@ -21,83 +18,105 @@ main {
 }
 
 /* ──────────────────────────────────────────────────────────────
-   HEADER: no-wrap flex row
+   Header (flex row)
 ────────────────────────────────────────────────────────────── */
 .header {
   background: #002244;
   color: #fff;
   display: flex;
-  align-items: center;
+  align-items: center;     /* vertically center all children */
   padding: 1rem 2rem;
 }
 
+/* container for logo / text / video / nav */
 .header-content {
   display: flex;
-  align-items: center;
+  align-items: center;     /* center logo, text, video, nav */
   justify-content: space-between;
   width: 100%;
-  gap: 1rem;
-  flex-wrap: nowrap;      /* NO wrapping */
+  gap: 2rem;
 }
 
-/* Logo – fixed size, no shrink */
+/* ──────────────────────────────────────────────────────────────
+   Logo block
+────────────────────────────────────────────────────────────── */
 .brand {
-  flex: 0 0 auto;
+  flex: none;              /* fixed size */
+  display: flex;
+  align-items: center;
 }
 .brand img {
-  max-height: 100px;
+  max-height: 120px;       /* controls header height */
   width: auto;
+  height: auto;
+  object-fit: contain;
   display: block;
 }
 
-/* Rotating text – fluid but with a min width */
+/* ──────────────────────────────────────────────────────────────
+   Rotating text block
+────────────────────────────────────────────────────────────── */
 .rotating-text-container {
-  flex: 2 1 300px;        /* grow:2, shrink:1, basis:300px */
-  min-width: 250px;
-  position: relative;
-  height: 3.5rem;
-  overflow: hidden;
-  white-space: nowrap;
-  margin: 0 1rem;
+  flex: 1;                 /* fill space between logo & video */
+  margin: 0 1rem;          /* optional gutter */
+  position: relative;      /* for absolutely‐positioned messages */
+  min-height: 3.5rem;      /* reserve height for one message */
   font-size: 1.1rem;
-  line-height: 1.3;
+  color: #fff;
+  font-weight: 500;
 }
+
+/* stack messages atop each other */
 .rotating-text-container .message {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   opacity: 0;
-  transition: opacity 0.8s ease-in-out;
-  white-space: nowrap;
+  transition: opacity 1s ease-in-out;
+  white-space: normal;
 }
 .rotating-text-container .message.active {
   opacity: 1;
 }
-.rotating-text-container strong {
-  margin-right: .5rem;
+.rotating-text-container .message strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #fff;
   font-size: 1.2rem;
-  display: inline-block;
+}
+.rotating-text-container .message span {
+  color: #ccc;
+  font-size: 1rem;
 }
 
-/* Video – fluid but don’t let it shrink too much */
+/* ──────────────────────────────────────────────────────────────
+   Video styling (match header height)
+────────────────────────────────────────────────────────────── */
 .video-container {
-  flex: 3 1 400px;        /* grow:3, shrink:1, basis:400px */
-  min-width: 300px;
-  max-height: 100px;
+  flex: none;              /* fixed size */
+  max-height: 120px;       /* same as logo max-height */
   overflow: hidden;
 }
 .video-container video {
-  width: 100%;            /* fill container width */
-  height: auto;           /* keep aspect */
+  height: 100%;
+  width: auto;             /* preserve aspect ratio */
   display: block;
 }
 
-/* Nav – fixed, no shrink */
+/* ──────────────────────────────────────────────────────────────
+   Top navigation override (flush top)
+────────────────────────────────────────────────────────────── */
+.header-content .nav-inline {
+  align-self: flex-start;  /* push nav up if needed */
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Navigation links */
 .nav-inline {
   display: flex;
   gap: 1.5rem;
-  flex: 0 0 auto;
 }
 .nav-inline a {
   color: #fff;
@@ -110,7 +129,7 @@ main {
 }
 
 /* ──────────────────────────────────────────────────────────────
-   HERO
+   Hero Section
 ────────────────────────────────────────────────────────────── */
 .hero {
   text-align: center;
@@ -121,9 +140,6 @@ main {
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-}
-.hero p {
-  margin-bottom: 2rem;
 }
 .cta {
   background: #d4af7f;
@@ -136,7 +152,7 @@ main {
 }
 
 /* ──────────────────────────────────────────────────────────────
-   FEATURES / CARDS
+   Features / Services Cards
 ────────────────────────────────────────────────────────────── */
 .features,
 .services-cards {
@@ -145,35 +161,39 @@ main {
   flex-wrap: wrap;
   gap: 2rem;
   padding: 3rem 2rem;
-  background: #fff;
 }
-.feature, .service-card {
+.feature,
+.service-card {
   background: #fff;
+  padding: 1.5rem;
   border: 1px solid #ddd;
   border-radius: 8px;
   flex: 1 1 280px;
-  padding: 1.5rem;
   text-align: center;
   transition: transform 0.3s ease;
 }
-.feature:hover, .service-card:hover {
+.feature:hover,
+.service-card:hover {
   transform: translateY(-5px);
 }
-.feature i, .service-card i {
+.feature i,
+.service-card i {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #d4af7f;
 }
-.feature h3, .service-card h3 {
+.service-card h3,
+.feature h3 {
   margin-bottom: 0.5rem;
 }
-.feature p, .service-card p {
+.service-card p,
+.feature p {
   color: #555;
   line-height: 1.5;
 }
 
 /* ──────────────────────────────────────────────────────────────
-   FOOTER
+   Footer
 ────────────────────────────────────────────────────────────── */
 .footer {
   background: #002244;
@@ -206,11 +226,11 @@ main {
   text-decoration: underline;
 }
 .footer-contact i {
-  margin-right: 0.4rem;
+  margin-right: 0.5rem;
 }
 
 /* ──────────────────────────────────────────────────────────────
-   RESPONSIVE
+   Responsive tweaks
 ────────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .header {
@@ -220,19 +240,16 @@ main {
   .header-content {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
   }
   .rotating-text-container {
-    white-space: normal;  /* allow wrap in small */
-    overflow: visible;
+    margin: 1rem 0;
     text-align: center;
-    height: auto;
   }
   .video-container {
-    max-height: none;
-    width: 100%;
+    margin: 1rem 0;
   }
-  .features, .services-cards {
+  .features,
+  .services-cards {
     padding: 2rem 1rem;
   }
 }
