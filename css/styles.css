@@ -18,57 +18,52 @@ main {
 }
 
 /* ──────────────────────────────────────────────────────────────
-   Header (flex row, no wrap)
+   Header (flex row)
 ────────────────────────────────────────────────────────────── */
 .header {
   background: #002244;
   color: #fff;
   display: flex;
-  align-items: center;
+  align-items: center;     /* vertically center all children */
   padding: 1rem 2rem;
 }
 
+/* container for logo / text / video / nav */
 .header-content {
   display: flex;
-  align-items: center;
+  align-items: center;     /* center logo, text, video, nav */
   justify-content: space-between;
   width: 100%;
   gap: 2rem;
-
-  /* prevent any items from wrapping to a new line */
-  flex-wrap: nowrap;
 }
 
 /* ──────────────────────────────────────────────────────────────
-   Logo block (fixed, no shrink)
+   Logo block
 ────────────────────────────────────────────────────────────── */
 .brand {
-  flex: 0 0 auto;          /* do not grow or shrink */
+  flex: none;              /* fixed size */
   display: flex;
   align-items: center;
 }
 .brand img {
   max-height: 120px;       /* controls header height */
   width: auto;
+  height: auto;
+  object-fit: contain;
   display: block;
 }
 
 /* ──────────────────────────────────────────────────────────────
-   Rotating text block (fluid, but no wrap)
+   Rotating text block
 ────────────────────────────────────────────────────────────── */
 .rotating-text-container {
-  flex: 1 1 auto;          /* fill remaining space */
-  min-width: 0;            /* allow it to shrink below content width */
-  margin: 0 1rem;
-  position: relative;      
-  min-height: 3.5rem;      
+  flex: 1;                 /* fill space between logo & video */
+  margin: 0 1rem;          /* optional gutter */
+  position: relative;      /* for absolutely‐positioned messages */
+  min-height: 3.5rem;      /* reserve height for one message */
   font-size: 1.1rem;
   color: #fff;
   font-weight: 500;
-
-  /* clamp overflow and force single-line */
-  overflow: hidden;
-  white-space: nowrap;
 }
 
 /* stack messages atop each other */
@@ -79,16 +74,14 @@ main {
   width: 100%;
   opacity: 0;
   transition: opacity 1s ease-in-out;
-
-  /* ensure no wrap inside each message */
-  white-space: nowrap;
+  white-space: normal;
 }
 .rotating-text-container .message.active {
   opacity: 1;
 }
 .rotating-text-container .message strong {
-  display: inline-block;
-  margin-right: 0.5rem;
+  display: block;
+  margin-bottom: 0.3rem;
   color: #fff;
   font-size: 1.2rem;
 }
@@ -98,28 +91,32 @@ main {
 }
 
 /* ──────────────────────────────────────────────────────────────
-   Video styling (fixed, no shrink)
+   Video styling (match header height)
 ────────────────────────────────────────────────────────────── */
 .video-container {
-  flex: 0 0 auto;          /* do not grow or shrink */
-  max-height: 120px;       
+  flex: none;              /* fixed size */
+  max-height: 120px;       /* same as logo max-height */
   overflow: hidden;
 }
 .video-container video {
   height: 100%;
-  width: auto;             
+  width: auto;             /* preserve aspect ratio */
   display: block;
 }
 
 /* ──────────────────────────────────────────────────────────────
-   Navigation (inline, no shrink)
+   Top navigation override (flush top)
 ────────────────────────────────────────────────────────────── */
+.header-content .nav-inline {
+  align-self: flex-start;  /* push nav up if needed */
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Navigation links */
 .nav-inline {
   display: flex;
   gap: 1.5rem;
-
-  /* keep all links on one line and prevent shrink */
-  flex: 0 0 auto;
 }
 .nav-inline a {
   color: #fff;
@@ -243,11 +240,9 @@ main {
   .header-content {
     flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
   }
   .rotating-text-container {
-    white-space: normal;  /* allow wrapping on small screens */
-    overflow: visible;
+    margin: 1rem 0;
     text-align: center;
   }
   .video-container {
@@ -258,3 +253,160 @@ main {
     padding: 2rem 1rem;
   }
 }
+
+HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JZ Digital | Automate Smarter</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+<body>
+  <!-- Header + Nav -->
+  <header class="header">
+    <div class="header-content">
+      <!-- Logo -->
+      <div class="brand">
+        <img src="images/logo.jpg" alt="JZ Digital Logo" />
+      </div>
+
+      <!-- Rotating Text -->
+      <div class="rotating-text-container" id="rotating-text-container">
+        <div class="message active" data-video="video/video1.mp4">
+          <strong>Smarter CRM Integration:</strong>
+          <span>
+            Build stronger relationships with CRM solutions that adapt to how your business actually works.
+          </span>
+        </div>
+        <div class="message" data-video="video/video2.mp4">
+          <strong>Lean Automation for SMEs:</strong>
+          <span>
+            Automate the busywork so your team can focus on what moves the business forward.
+          </span>
+        </div>
+        <div class="message" data-video="video/video3.mp4">
+          <strong>Compliance-First Workflows:</strong>
+          <span>
+            Streamline operations while meeting regulatory requirements with workflows designed for control.
+          </span>
+        </div>
+        <div class="message" data-video="video/video4.mp4">
+          <strong>ISO & GDPR Ready Solutions:</strong>
+          <span>
+            Stay ahead of audits and protect data with compliance built into every layer of your solution.
+          </span>
+        </div>
+      </div>
+
+      <!-- Video Container (only the <video> element goes here!) -->
+      <div class="video-container video-outline">
+        <video id="hero-video" autoplay muted playsinline>
+          <source src="video/video1.mp4" type="video/mp4" />
+          Your browser doesn’t support HTML5 video.
+        </video>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="nav-inline">
+        <a href="index.html">Home</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <h1>Automate Smarter. Work Leaner. Grow Faster.</h1>
+      <p>
+        Streamline your business processes with modern CRM, automation, and compliance solutions.
+      </p>
+      <button class="cta">See Use Cases</button>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+      <div class="feature">
+        <i class="fas fa-network-wired"></i>
+        <h3>CRM Implementation & Integration</h3>
+        <p>
+          Connect and centralize all your client touchpoints—contacts, communications and tasks—in one tailored CRM platform.
+        </p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-file-alt"></i>
+        <h3>Process Automation</h3>
+        <p>
+          Automate reminders, document creation and filing workflows so nothing slips through the cracks.
+        </p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Compliance & Security</h3>
+        <p>
+          Embed built-in GDPR, ISO 27001 and audit-trail controls to satisfy clients and regulators alike.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="footer-content">
+      <p>&copy; 2024 JZ Digital Ltd.</p>
+      <div class="footer-contact">
+        <a href="mailto:contact@jzdigitalconsults.co.uk">
+          <i class="fas fa-envelope"></i> contact@jzdigitalconsults.co.uk
+        </a>
+        |
+        <a
+          href="https://www.linkedin.com/company/jz-digital-ltd/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==== Only this single script at the end of the body! ==== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const messages = document.querySelectorAll('#rotating-text-container .message');
+      const videoEl  = document.getElementById('hero-video');
+      let index = 0;
+
+      function rotate() {
+        // hide current message
+        messages[index].classList.remove('active');
+        // next index
+        index = (index + 1) % messages.length;
+        // show next
+        const msg = messages[index];
+        msg.classList.add('active');
+
+        // swap video
+        const newSrc = msg.getAttribute('data-video');
+        const srcEl  = videoEl.querySelector('source');
+        if (!srcEl.src.endsWith(newSrc)) {
+          srcEl.src = newSrc;
+          videoEl.load();
+        }
+        videoEl.play();
+      }
+
+      videoEl.addEventListener('ended', rotate);
+    });
+  </script>
+</body>
+</html>
