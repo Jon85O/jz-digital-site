@@ -1,203 +1,209 @@
-/* ==============
-   Variables
-   ============== */
+/* ================  
+   VARIABLES & BASE  
+   ================ */
 :root {
-  --color-navy:   #001f44;
-  --color-black:  #000;
-  --color-white:  #fff;
-  --color-gold:   #D4AF37;
-  --color-grey:   #333;
-  --max-width:    1200px;
-  --pad:          1rem;
-  --radius:       8px;
-  --transition:   0.3s ease;
-  --fw-bold:      600;
+  --nav-bg: #002147;
+  --primary: #d8aa6b;
+  --text-light: #fff;
+  --bg-dark: #000;
+  --bg-light: #f9f9f9;
+  --feature-bg: #fff;
+  --feature-border: #e0e0e0;
+  --font-sans: 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* ==============
-   Global Reset
-   ============== */
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
-}
-body {
   margin: 0;
-  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-  color: var(--color-grey);
-  line-height: 1.5;
-  background: var(--color-white);
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-img,
-video {
-  display: block;
-  max-width: 100%;
-  height: auto;
+  padding: 0;
 }
 
-/* ==============
-   Header & Nav
-   ============== */
-.header {
-  background: var(--color-navy);
+html, body {
+  height: 100%;
+  font-family: var(--font-sans);
+  color: #333;
 }
-.header-content {
-  max-width: var(--max-width);
-  margin: 0 auto;
+
+/* =================  
+   HEADER & NAV  
+   ================= */
+.header {
+  background: var(--nav-bg);
+  color: var(--text-light);
+}
+
+.header .header-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: var(--pad) 1.5rem;
+  padding: 1rem 2rem;
 }
 
-/* Logo container */
-.brand {
-  flex: 0 0 auto;
+/* Logo column */
+.header .brand {
+  flex: 0 0 250px;     /* bump this up from e.g. 150px */
+  padding: 0.5rem;
 }
-.brand img {
-  max-height: 80px;       /* ↑ bump this for a larger logo */
+
+/* Logo sizing */
+.header .brand img {
+  max-width: 100%;
+  max-height: 80px;    /* increased from 50px */
   height: auto;
-  width: auto;
+  object-fit: contain;
 }
 
-/* Rotating text (or hero message) */
+/* Rotating text fills remaining space */
 .rotating-text-container {
-  flex: 1 1 auto;
-  color: var(--color-white);
-  padding: 0 var(--pad);
-  font-size: 0.9rem;
+  flex: 1;
+  margin: 0 1rem;
+  color: var(--text-light);
 }
+
 .rotating-text-container .message {
   display: none;
+  transition: opacity 0.3s ease;
 }
 .rotating-text-container .message.active {
   display: block;
 }
-.rotating-text-container strong {
-  font-weight: var(--fw-bold);
-  color: var(--color-white);
-}
 
-/* Video placeholder – keep same height as header */
+/* Video sits next to rotating text */
 .video-container {
-  flex: 0 0 200px;  /* match header height */
-  margin-left: var(--pad);
-  background: #000; /* placeholder if video not shown */
-  border-radius: var(--radius);
-  overflow: hidden;
+  flex: 0 0 300px;
+  max-width: 300px;
+  margin-right: 2rem;
+}
+.video-container video {
+  display: block;
+  width: 100%;
+  border-radius: 4px;
 }
 
-/* Nav */
+/* Primary nav */
 .nav-inline {
   flex: 0 0 auto;
-  display: flex;
-  gap: 1.5rem;
+  margin-left: auto;
 }
 .nav-inline a {
-  color: var(--color-white);
-  font-weight: var(--fw-bold);
-  transition: color var(--transition);
+  color: var(--text-light);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 500;
+  transition: color 0.2s;
 }
 .nav-inline a:hover {
-  color: var(--color-gold);
+  color: var(--primary);
 }
 .nav-inline a.active {
-  color: var(--color-gold);
+  color: var(--primary);
 }
 
-/* ==============
-   Hero Section
-   ============== */
+/* =================  
+   HERO  
+   ================= */
 .hero {
-  background: var(--color-black);
-  color: var(--color-gold);
+  background: var(--bg-dark);
+  color: var(--primary);
   text-align: center;
   padding: 4rem 1rem;
 }
 .hero h1 {
-  margin: 0 0 1rem;
   font-size: 2.5rem;
-  font-weight: var(--fw-bold);
+  margin-bottom: 1rem;
 }
 .hero p {
-  margin: 0 0 2rem;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
 }
 .hero .cta {
-  background: var(--color-gold);
+  background: var(--primary);
+  color: #000;
   border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: var(--radius);
-  color: var(--color-black);
   font-size: 1rem;
-  font-weight: var(--fw-bold);
+  border-radius: 4px;
   cursor: pointer;
-  transition: background var(--transition);
+  transition: background 0.2s;
 }
 .hero .cta:hover {
-  background: #b3912a;
+  background: darken(var(--primary), 10%);
 }
 
-/* ==============
-   Features Grid
-   ============== */
+/* =================  
+   FEATURES  
+   ================= */
 .features {
-  max-width: var(--max-width);
-  margin: 3rem auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  padding: 0 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 3rem 1rem;
+  background: var(--bg-light);
+  justify-content: center;
 }
 .feature {
-  background: var(--color-white);
-  border: 1px solid #eee;
-  border-radius: var(--radius);
-  padding: 2rem 1.5rem;
+  background: var(--feature-bg);
+  border: 1px solid var(--feature-border);
+  border-radius: 8px;
+  flex: 1 1 280px;
+  max-width: 320px;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-.feature:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 2rem 1rem;
 }
 .feature i {
   font-size: 2rem;
-  color: var(--color-gold);
+  color: var(--primary);
   margin-bottom: 1rem;
 }
 .feature h3 {
-  margin: 0 0 0.75rem;
-  font-size: 1.25rem;
-  font-weight: var(--fw-bold);
+  margin-bottom: 0.5rem;
 }
 .feature p {
-  margin: 0;
   font-size: 0.95rem;
-  color: var(--color-grey);
+  line-height: 1.4;
+  color: #555;
 }
 
-/* ==============
-   Footer
-   ============== */
+/* =================  
+   FOOTER  
+   ================= */
 .footer {
-  background: var(--color-navy);
-  color: var(--color-white);
+  background: var(--nav-bg);
+  color: var(--text-light);
   text-align: center;
   padding: 1.5rem 1rem;
-  font-size: 0.9rem;
 }
-.footer a {
-  color: var(--color-white);
+.footer .footer-content {
+  max-width: 960px;
+  margin: auto;
+}
+.footer-contact {
+  margin-top: 0.5rem;
+}
+.footer-contact a {
+  color: var(--text-light);
+  text-decoration: none;
   margin: 0 0.5rem;
-  display: inline-block;
-  transition: color var(--transition);
+  transition: color 0.2s;
 }
-.footer a:hover {
-  color: var(--color-gold);
+.footer-contact a:hover {
+  color: var(--primary);
+}
+
+/* =================  
+   UTILITY  
+   ================= */
+@media (max-width: 900px) {
+  .header .header-content {
+    flex-wrap: wrap;
+  }
+  .video-container {
+    display: none;
+  }
+  .rotating-text-container {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  .nav-inline {
+    margin-top: 1rem;
+  }
 }
