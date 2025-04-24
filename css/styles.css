@@ -1,44 +1,48 @@
+:root {
+  --accent: #d2a859;
+  --max-width: 1200px;
+}
+
 /* ─── Header Container ───────────────────────────────────────────────────── */
 .header {
   background: #002244;
   color: #fff;
-  padding: 2rem;               /* more comfortable top/bottom padding */
+  padding: 2rem;
 }
 
 /* ─── Inner Flex Layout ──────────────────────────────────────────────────── */
 .header-content {
-  max-width: var(--max-width, 1200px);
+  max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
-  align-items: center;         /* vertical centering */
+  align-items: center;
   justify-content: space-between;
-  gap: 2rem;                   /* breathing room between columns */
+  gap: 2rem;
 }
 
 /* ─── Logo Column ───────────────────────────────────────────────────────── */
 .brand {
-  flex: 0 0 auto;              /* only as wide as it needs to be */
+  flex: 0 0 auto;
 }
 .brand img {
-  /* bump this up or down to taste */
-  max-height: 120px;           
+  max-height: 140px;    /* ↑ bumped from 120 → 140px */
   width: auto;
   display: block;
 }
 
 /* ─── Text Column ───────────────────────────────────────────────────────── */
 .rotating-text-container {
-  flex: 1 1 0;                 /* take all the remaining space */
-  padding: 0 1rem;             /* side padding so it never crams */
+  flex: 1 1 0;
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;     /* center lines of text vertically */
-  min-height: 120px;           /* ensure it never collapses too small */
+  justify-content: center;
+  min-height: 140px;    /* match new logo height */
 }
 
 /* ─── Media Column ──────────────────────────────────────────────────────── */
 .video-container {
-  flex: 0 0 200px;             /* fixed suggested width for video/placeholder */
+  flex: 0 0 240px;      /* slightly wider to accommodate 140px height video */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,9 +50,98 @@
 .video-container video,
 .video-container img {
   max-width: 100%;
-  max-height: 120px;           /* match logo height for harmony */
+  max-height: 140px;    /* match logo height */
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* ─── Navigation ───────────────────────────────────────────────────────── */
+.nav-inline a {
+  color: #fff;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+.nav-inline a.active,
+.nav-inline a:hover {
+  color: var(--accent);
+}
+
+/* ─── Hero Section ──────────────────────────────────────────────────────── */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: #000;
+  color: #d2a859;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+.hero .cta {
+  background: var(--accent);
+  color: #002244;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.hero .cta:hover {
+  opacity: 0.9;
+}
+
+/* ─── Features ─────────────────────────────────────────────────────────── */
+.features {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 3rem 1rem;
+}
+.feature {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  flex: 1 1 280px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.feature:hover {
+  transform: translateY(-5px);
+}
+.feature i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+.feature h3 {
+  margin-bottom: 0.5rem;
+}
+.feature p {
+  color: #555;
+  line-height: 1.5;
+}
+
+/* ─── Footer ───────────────────────────────────────────────────────────── */
+.footer {
+  background: #002244;
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.footer-contact a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+.footer-contact a:hover {
+  color: var(--accent);
 }
 
 /* ─── Responsive Adjustments ────────────────────────────────────────────── */
@@ -57,16 +150,13 @@
     flex-direction: column;
     text-align: center;
   }
-
   .brand,
   .rotating-text-container,
   .video-container {
-    flex: none;
     width: 100%;
+    margin-top: 1rem;
   }
-
-  .rotating-text-container,
-  .video-container {
+  .nav-inline {
     margin-top: 1rem;
   }
 }
