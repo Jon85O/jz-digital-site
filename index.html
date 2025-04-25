@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JZ Digital | Automate Smarter</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
   <!-- Header + Nav -->
@@ -19,33 +16,28 @@
         <img src="images/logo.jpg" alt="JZ Digital Logo" />
       </div>
 
-      <!-- Rotating Text -->
-      <div class="rotating-text-container" id="rotating-text-container">
-        <div class="message active" data-video="video/video1.mp4">
-          <strong>Smarter CRM Integration:</strong>
-          <span>
-            Build stronger relationships with CRM solutions that adapt to how your business actually works.
-          </span>
-        </div>
-        <div class="message" data-video="video/video2.mp4">
-          <strong>Lean Automation for SMEs:</strong>
-          <span>
-            Automate the busywork so your team can focus on what moves the business forward.
-          </span>
-        </div>
-        <div class="message" data-video="video/video3.mp4">
-          <strong>Compliance-First Workflows:</strong>
-          <span>
-            Streamline operations while meeting regulatory requirements with workflows designed for control.
-          </span>
-        </div>
-        <div class="message" data-video="video/video4.mp4">
-          <strong>ISO & GDPR Ready Solutions:</strong>
-          <span>
-            Stay ahead of audits and protect data with compliance built into every layer of your solution.
-          </span>
-        </div>
-      </div>
+<!-- Centered Rotating Text -->
+<div class="rotating-wrapper" style="flex: 1; display: flex; align-items: center;">
+  <div class="rotating-text-container" id="rotating-text-container" style="width: 100%;">
+    <div class="message active" data-video="video/video1.mp4">
+      <strong>Smarter CRM Integration:</strong>
+      <span>Build stronger relationships with CRM solutions that adapt to how your business actually works.</span>
+    </div>
+    <div class="message" data-video="video/video2.mp4">
+      <strong>Lean Automation for SMEs:</strong>
+      <span>Automate the busywork so your team can focus on what moves the business forward.</span>
+    </div>
+    <div class="message" data-video="video/video3.mp4">
+      <strong>Compliance-First Workflows:</strong>
+      <span>Streamline operations while meeting regulatory requirements with workflows designed for control.</span>
+    </div>
+    <div class="message" data-video="video/video4.mp4">
+      <strong>ISO & GDPR Ready Solutions:</strong>
+      <span>Stay ahead of audits and protect data with compliance built into every layer of your solution.</span>
+    </div>
+  </div>
+</div>
+
 
       <!-- Video Container -->
       <div class="video-container video-outline">
@@ -57,10 +49,10 @@
 
       <!-- Navigation -->
       <nav class="nav-inline">
-        <a href="index.html">Home</a>
-        <a href="services.html" class="active">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -69,9 +61,7 @@
   <main>
     <section class="hero">
       <h1>Automate Smarter. Work Leaner. Grow Faster.</h1>
-      <p>
-        Streamline your business processes with modern CRM, automation, and compliance solutions.
-      </p>
+      <p>Streamline your business processes with modern CRM, automation, and compliance solutions.</p>
       <button class="cta">See Use Cases</button>
     </section>
 
@@ -80,23 +70,17 @@
       <div class="feature">
         <i class="fas fa-network-wired"></i>
         <h3>CRM Implementation & Integration</h3>
-        <p>
-          Connect and centralize all your client touchpoints—contacts, communications and tasks—in one tailored CRM platform.
-        </p>
+        <p>Connect and centralize all your client touchpoints—contacts, communications and tasks—in one tailored CRM platform.</p>
       </div>
       <div class="feature">
         <i class="fas fa-file-alt"></i>
         <h3>Process Automation</h3>
-        <p>
-          Automate reminders, document creation and filing workflows so nothing slips through the cracks.
-        </p>
+        <p>Automate reminders, document creation and filing workflows so nothing slips through the cracks.</p>
       </div>
       <div class="feature">
         <i class="fas fa-shield-alt"></i>
         <h3>Compliance & Security</h3>
-        <p>
-          Embed built-in GDPR, ISO 27001 and audit-trail controls to satisfy clients and regulators alike.
-        </p>
+        <p>Embed built-in GDPR, ISO 27001 and audit-trail controls to satisfy clients and regulators alike.</p>
       </div>
     </section>
   </main>
@@ -110,39 +94,48 @@
           <i class="fas fa-envelope"></i> contact@jzdigitalconsults.co.uk
         </a>
         |
-        <a
-          href="https://www.linkedin.com/company/jz-digital-ltd/"
-          target="_blank"
-          rel="noopener"
-        >
+        <a href="https://www.linkedin.com/company/jz-digital-ltd/" target="_blank" rel="noopener">
           <i class="fab fa-linkedin"></i> LinkedIn
         </a>
       </div>
     </div>
   </footer>
 
-  <!-- Rotating text ⇆ video swap script -->
+  <!-- Rotating text ⇆ video sync script -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const messages = document.querySelectorAll('#rotating-text-container .message');
       const videoEl  = document.getElementById('hero-video');
+      const sourceEl = videoEl.querySelector('source');
       let index = 0;
 
       function rotate() {
         messages[index].classList.remove('active');
-        index = (index + 1) % messages.length;
-        const msg = messages[index];
-        msg.classList.add('active');
-        const newSrc = msg.getAttribute('data-video');
-        const srcEl  = videoEl.querySelector('source');
-        if (!srcEl.src.endsWith(newSrc)) {
-          srcEl.src = newSrc;
-          videoEl.load();
-        }
-        videoEl.play();
+        videoEl.classList.remove('visible');
+
+        setTimeout(() => {
+          index = (index + 1) % messages.length;
+          const msg = messages[index];
+          const newSrc = msg.getAttribute('data-video');
+
+          if (!sourceEl.src.endsWith(newSrc)) {
+            sourceEl.src = newSrc;
+            videoEl.load();
+          }
+
+          msg.classList.add('active');
+
+          videoEl.addEventListener('loadeddata', () => {
+            videoEl.play();
+            videoEl.classList.add('visible');
+            setTimeout(rotate, 8000); // Show each video for 8 seconds
+          }, { once: true });
+
+        }, 2000); // Wait for 2s fade-out before next transition
       }
 
-      videoEl.addEventListener('ended', rotate);
+      videoEl.classList.add('visible');
+      setTimeout(rotate, 8000); // Start rotation after initial 8s
     });
   </script>
 </body>
