@@ -1,9 +1,3 @@
-### services.html and CSS
-
-Below is an updated **services.html** that mirrors the three‑card layout from your homepage, along with the CSS additions needed to style it identically.
-
-```html
-<!-- services.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,99 +8,123 @@ Below is an updated **services.html** that mirrors the three‑card layout from 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
-  <!-- Reuse header -->
+  <!-- Header -->
   <header class="header">
     <div class="header-content">
-      <div class="brand">
-        <img src="images/logo.jpg" alt="JZ Digital Logo" />
+      <div class="brand" style="max-height: 300px; display: flex; align-items: center;">
+        <img src="images/logo.jpg" alt="JZ Digital Logo" style="max-height: 300px; width: auto;" />
       </div>
-      <nav class="nav-inline">
-        <a href="index.html">Home</a>
-        <a href="services.html" class="active">Services</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+      <div style="flex: 1; padding-left: 2rem;">
+        <h2 style="font-size: 1.8rem; color: #ffffff; margin-bottom: 0.5rem;">Why JZ Digital?</h2>
+        <p style="font-size: 1rem; color: #ffffff; max-width: 600px; line-height: 1.6;">
+          <strong>JZ Digital is a digital consultancy that helps SMEs modernise with confidence.</strong>
+        </p>
+        <p style="font-size: 1rem; color: #ffffff; max-width: 600px; line-height: 1.6;">
+          We combine strategy, CRM implementation and configuration support to make transformation simple, secure and sustainable.</p>
+          <p style="font-size: 1rem; color: #ffffff; max-width: 600px; line-height: 1.6;">
+            Our approach is compliance-first and automation-led, reducing admin burdens, improving visibility and helping you stay ahead of change without unnecessary IT complexity.
+        </p>
+      </div>
+
+<!-- Static Video -->
+<div style="flex: none; width: 515px; max-width: 100%; margin-left: 1rem;">
+  <video autoplay muted loop playsinline style="width: 100%; border-radius: 8px;">
+
+    <source src="video/video5.mp4" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+
+
+    <nav class="nav-inline">
+      <a href="index.html">Home</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <!-- Page Hero -->
-  <section class="page-hero services-hero">
-    <div class="container">
-      <h1>Our Services</h1>
-      <p>Discover how JZ Digital helps you automate smarter, work leaner, and grow faster.</p>
-    </div>
+  <!-- Hero -->
+  <section class="page-hero services-hero" style="text-align: center; padding: 0.5rem;">
+    <h1 style="font-size: 2rem; color: #002244; margin-bottom: 0.5rem;">Our Services</h1>
+    <p style="font-size: 1.05rem; color: #333;"><strong>Discover how JZ Digital helps you automate smarter, work leaner, and grow faster.</strong></p>
   </section>
 
-  <!-- Three‑card Services section -->
-  <main class="container services-cards">
-    <div class="service-card">
-      <i class="fas fa-network-wired"></i>
-      <h3>CRM Implementation &amp; Integration</h3>
-      <p>Connect and centralize all your client touchpoints—contacts, communications, and tasks—in one tailored CRM platform.</p>
+  <!-- What You Get -->
+  <main class="container services-cards" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; padding: 1rem 2rem;">
+    <div class="service-card" style="flex: 1 1 200px; max-width: 200px; text-align: center;">
+      <i class="fas fa-box-open" style="color: #d4af7f; font-size: 1.8rem; margin-bottom: 0.5rem;"></i>
+      <h3>What You Get</h3>
+      <p style="font-size: 0.9rem;">A streamlined CRM tailored to your business, automations that save hours each week, and documentation built to pass compliance checks.</p>
     </div>
-    <div class="service-card">
-      <i class="fas fa-cogs"></i>
-      <h3>Process Automation</h3>
-      <p>Automate reminders, document creation, and filing workflows so nothing slips through the cracks.</p>
+
+    <div class="service-card" style="flex: 1 1 200px; max-width: 200px; text-align: center;">
+      <i class="fas fa-network-wired" style="color: #d4af7f; font-size: 1.8rem; margin-bottom: 0.5rem;"></i>
+      <h3>Tailored CRM setup</h3>
+      <p style="font-size: 0.9rem;">From discovery workshops to data migration, we help you adopt the right CRM and get value fast.</p>
     </div>
-    <div class="service-card">
-      <i class="fas fa-shield-alt"></i>
-      <h3>Compliance &amp; Security</h3>
-      <p>Embed built‑in GDPR, ISO 27001, and audit‑trail controls to satisfy clients and regulators alike.</p>
+
+    <div class="service-card" style="flex: 1 1 200px; max-width: 200px; text-align: center;">
+      <i class="fas fa-cogs" style="color: #d4af7f; font-size: 1.8rem; margin-bottom: 0.5rem;"></i>
+      <h3>Automated workflows</h3>
+      <p style="font-size: 0.9rem;">We build forms, triggers and reminders that reduce repetitive admin and prevent things slipping through the cracks.</p>
+    </div>
+
+    <div class="service-card" style="flex: 1 1 200px; max-width: 200px; text-align: center;">
+      <i class="fas fa-shield-alt" style="color: #d4af7f; font-size: 1.8rem; margin-bottom: 0.5rem;"></i>
+      <h3>Compliance built in</h3>
+      <p style="font-size: 0.9rem;">We design workflows and documentation aligned to GDPR and ISO 27001, so you're audit-ready by design.</p>
+    </div>
+
+    <div class="service-card" style="flex: 1 1 200px; max-width: 200px; text-align: center;">
+      <i class="fas fa-handshake" style="color: #d4af7f; font-size: 1.8rem; margin-bottom: 0.5rem;"></i>
+      <h3>Flexible support</h3>
+      <p style="font-size: 0.9rem;">From fixed-fee strategy sessions to ongoing support, we flex with your needs and scale with you.</p>
     </div>
   </main>
 
-  <!-- Reuse footer -->
+  <!-- How We Work Section -->
+  <section style="background: #0f172a; color: #eee; text-align: center; padding: 3rem 1.5rem;">
+    <h2 style="color: #d4af7f; font-size: 2rem; margin-bottom: 0.5rem;">How We Work</h2>
+    <p style="font-size: 1.05rem; max-width: 720px; margin: 0 auto 2.5rem;">Our process helps you move fast, stay compliant, and get value from day one.</p>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.25rem; max-width: 960px; margin: 0 auto;">
+      <div style="flex: 1 1 calc(25% - 1rem); background: rgba(255,255,255,0.03); border-radius: 8px; padding: 1.5rem; box-sizing: border-box;">
+        <h3 style="color: #d4af7f; font-size: 1rem;">Discovery</h3>
+        <p style="font-size: 0.9rem;">We uncover your goals, blockers, and operational needs.</p>
+      </div>
+
+      <div style="flex: 1 1 calc(25% - 1rem); background: rgba(255,255,255,0.03); border-radius: 8px; padding: 1.5rem; box-sizing: border-box;">
+        <h3 style="color: #d4af7f; font-size: 1rem;">CRM Setup</h3>
+        <p style="font-size: 0.9rem;">We configure your system and migrate your data securely.</p>
+      </div>
+
+      <div style="flex: 1 1 calc(25% - 1rem); background: rgba(255,255,255,0.03); border-radius: 8px; padding: 1.5rem; box-sizing: border-box;">
+        <h3 style="color: #d4af7f; font-size: 1rem;">Automation</h3>
+        <p style="font-size: 0.9rem;">We streamline tasks with workflows that just work.</p>
+      </div>
+
+      <div style="flex: 1 1 calc(25% - 1rem); background: rgba(255,255,255,0.03); border-radius: 8px; padding: 1.5rem; box-sizing: border-box;">
+        <h3 style="color: #d4af7f; font-size: 1rem;">Compliance Launch</h3>
+        <p style="font-size: 0.9rem;">We align processes with GDPR and ISO 27001 best practice.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer" id="contact">
     <div class="footer-content">
       <p>&copy; 2024 JZ Digital Ltd.</p>
       <div class="footer-contact">
-        <a href="mailto:contact@jzdigitalconsults.co.uk"><i class="fas fa-envelope"></i> contact@jzdigitalconsults.co.uk</a>
+        <a href="mailto:contact@jzdigitalconsults.co.uk">
+          <i class="fas fa-envelope"></i> contact@jzdigitalconsults.co.uk
+        </a>
         |
-        <a href="https://www.linkedin.com/company/jz-digital-ltd/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://www.linkedin.com/company/jz-digital-ltd/" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
       </div>
     </div>
   </footer>
 </body>
 </html>
-```
-
-Add the following CSS to your **css/styles.css** to style the new three‑card layout exactly like your homepage’s feature cards:
-
-```css
-/* Services page cards (reuse homepage feature styles) */
-.services-cards {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 3rem 0;
-}
-.service-card {
-  background: #fff;
-  padding: 1.5rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  flex: 1 1 280px;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-.service-card:hover {
-  transform: translateY(-5px);
-}
-.service-card i {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--accent);
-}
-.service-card h3 {
-  margin-bottom: 0.5rem;
-}
-.service-card p {
-  line-height: 1.5;
-  color: #555;
-}
-```
-
-No other changes are required—this will give your Services page the same clean three‑card look as your homepage features section.
-
